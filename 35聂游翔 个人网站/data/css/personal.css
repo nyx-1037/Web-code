@@ -1,0 +1,56 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+	background:skyblue;
+	
+}
+.grzp{
+	border:2px dashed black;
+
+}
+a:link,a:visited{
+	text-decoration: none;
+}
+a:hover{
+	color:red;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+	background:url("../img/shuiying.jpg");
+	border:10px dashed black;
+}
+.container:hover{
+	border:5px solid black;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+ul {
+   /* list-style-type: none;*/
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+img{
+    width:20%;
+    height:20%;
+	float:right;
+}
+.ht{
+	  width:12%;
+    height:12%;
+	float:right;
+	border:5px solid black;
+}
+footer{
+	text-align: center;
+}

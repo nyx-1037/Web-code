@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年祝福网页</title>
+    <script type="text/javascript"> 
+        var showcoo = function(){ 
+        this.size = 40; 
+        this.speed = 0.1; 
+        this.rise(); 
+        }
+        showcoo.prototype = { 
+        color:function(){  
+        var c = ['0','3','6','9','c','f'];  
+        var t = [c[Math.floor(Math.random()*100)%6],'0','f'];  
+        t.sort(function(){return Math.random()>0.5?-1:1;});  
+        return '#'+t.join(''); 
+        }, 
+        aheight:function(){ 
+        var h = document.documentElement.clientHeight; 
+        return Math.abs(Math.floor(Math.random()*h-200))+201; 
+        }, 
+        firecracker:function(){  
+        var b = document.createElement('div');  
+        var w = document.body.clientWidth;  
+        b.style.color = this.color();  
+        b.style.position = 'absolute';  
+        b.style.bottom = 0;  
+        b.style.left = Math.floor(Math.random()*w)+1+'px';  
+        document.body.appendChild(b);  
+        return b;  
+        }, 
+        rise:function(){ 
+        var o = this.firecracker(); 
+        var n = this.aheight(); 
+        var speed = this.speed; 
+        var e = this.expl; 
+        var s = this.size; 
+        var k = n;  
+        var m = function(){  
+        o.style.bottom = parseFloat(o.style.bottom)+k*speed+'px';  
+        k-=k*speed;  
+        if(k<2){  
+        clearInterval(clear);  
+        e(o,n,s,speed);  
+        }  
+        }  
+        o.innerHTML = '*';  
+        if(parseInt(o.style.bottom)<n){  
+        var clear = setInterval(m,20); 
+        } 
+        }, 
+        expl:function(o,n,s,speed){ 
+        var R = n/3; 
+        var Ri = n/6; 
+        var r = 0; 
+        var ri = 0; 
+        for(var i=0;i<s;i++){ 
+        var span = document.createElement('span'); 
+        var p = document.createElement('p'); 
+        span.style.position = 'absolute'; 
+        span.style.left = 0; 
+        span.style.top = 0; 
+        span.innerHTML = '*'; 
+        p.style.position = 'absolute'; 
+        p.style.left = 0; 
+        p.style.top = 0; 
+        p.innerHTML = '+'; 
+        o.appendChild(span); 
+        o.appendChild(p); 
+        } 
+        function spr(){ 
+        r += R*speed; 
+        ri+= Ri*speed/2; 
+        sp = o.getElementsByTagName('span'); 
+        p = o.getElementsByTagName('p'); 
+        for(var i=0; i<sp.length;i++){ 
+            sp[i].style.left=r*Math.cos(360/s*i)+'px'; 
+            sp[i].style.top=r*Math.sin(360/s*i)+'px'; 
+            p[i].style.left=ri*Math.cos(360/s*i)+'px'; 
+            p[i].style.top=ri*Math.sin(360/s*i)+'px'; 
+        } 
+        R-=R*speed; 
+        if(R<2){ 
+            clearInterval(clearI); 
+            o.parentNode.removeChild(o);  
+        }  
+        }  
+        var clearI = setInterval(spr,20);
+        }
+        }
+        window.onload = function(){
+        function happyNewYear(){
+        new showcoo(); 
+        } 
+        setInterval(happyNewYear,400); 
+        } 
+    </script> 
+    <style>
+        body {
+            background-color:rgba(255,0,4,0.10);
+            margin: 0;
+            padding: 0;
+        }
+        .container1{
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+			text-align:center;
+        }
+		.container2{
+			width:320px;
+			height:570px;
+			text-align:center;
+			border:5px solid black;
+			margin:20px;
+			border-radius: 50px;
+			box-shadow:5px 5px 5px black;
+			background-color:white;
+		}
+		.container2:hover{
+			background-color:rgba(253,0,4,0.50);
+			transform: scale(1.05,1.05);
+		}
+        header {
+            background: #50b3a2;
+            color: red;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        header .highlight, header .current a {
+            color: #e8491d;
+            font-weight: bold;
+        }
+        header a:hover {
+            color: #ffffff;
+            font-weight: bold;
+			font-size:18px;
+        }
+        @media (max-width: 680px) {
+            header li {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+        }
+		footer{
+			background-color:rgba(46,42,42,1.00);
+			color:white;
+			text-align:center;
+		}
+		@font-face {
+    	font-family: "longying";
+   	 	src: url("css/字魂龙吟手书.ttf");
+	}
+		@font-face {
+    	font-family: "jiangnan";
+   	 	src: url("css/字魂江南手书.ttf");
+	}
+		h1{
+			font-family: "longying";
+			font-size:35px;
+		}
+		h2{
+			font-size:24px;
+		}
+		h3{
+			font-family: "jiangnan";
+			font-size:24px;
+		}
+		p{
+			font-family:"jiangnan"; 
+			font-size:20px;
+		}
+
+		.img1{
+			height:350px;
+			width:450px;
+			float:right;
+			padding:15px;
+			margin-top:150px;
+			border:2px solid grey;
+			box-shadow:5px 5px 5px black;
+			background-color:white;
+		}
+		.img1:hover{
+			background-color:rgba(255,0,4,0.21);
+			transform: scale(1.15,1.15);
+		}
+		.MAXbox{
+			width:1100px;
+			height:700px;
+			margin:auto;
+		}
+		#timeDisplay {
+    		margin-top: 20px;
+			float:right;
+		}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container1">
+            <div id="branding">
+                <h1>2024 龙年大吉！！！</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="首页目录.html">首页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="MAXbox">	
+		<div id="timeDisplay">
+        <h2>当前时间：</h2>
+        <p id="currentTime"></p >
+			<script src="js/test.js"></script>
+	</div>	  
+	<a href="img/newyear2024.jpg" target="_blank">
+		<img src="img/newyear2024.jpg" class="img1"></a>
+        <div class="container2">
+            <h3>《龙吟福韵·贺2024龙年大吉》</h3>
+			<p>甲辰风云起，龙腾瑞气生。</p>
+			<p>福门开有益，吉祥庆岁丰。</p> 
+			<p>银河星辰耀，华夏天际明。</p>
+			<p>五福临门庆，事业辉煌新。</p>
+			<p>祥云绕梁转，喜气洋洋盛。</p>
+			<p>团圆喜乐满，幸福久长情。</p>
+			<p>春风吹绿意，龙舞新篇章。</p>
+			<p>家和国兴旺，万世享太平。</p>
+			<p>丹青画卷展，诗意龙年韵。</p>
+			
+			<p>龙飞凤舞间，岁月赋华章。</p>
+			<p>前程似锦瑞，2024龙年祥。</p>
+				   
+  
+</div>
+	</div>
+    <footer>
+        版权所有 &copy; 2024 Mr.Nie<sup>&reg;</sup> 新年祝福网页
+		
+    </footer>
+
+</body>
+</html>

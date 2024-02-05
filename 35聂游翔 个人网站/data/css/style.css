@@ -1,0 +1,158 @@
+*{
+    padding:0;
+    margin:0;
+}
+@font-face {
+    font-family: "jiangnan";
+    src: url(字魂江南手书.ttf);
+}
+h1{
+	font-size: 50px;
+	text-align: center;
+	padding:5px;
+	font-family:"jiangnan";
+	color:red;
+	text-shadow:5px 5px 5px blue;
+}
+.VMAX{
+	width:850px;
+	height:840px;
+	padding:20px;
+	margin:auto;
+}
+.MAX1,.MAX2,.MAX3{
+	width:660px;
+	height:660px;
+	border:5px solid black;
+	padding:5px;
+	margin:auto;
+	border-radius: 50px;
+	box-shadow:10px 10px 10px black;
+	background-size:cover;
+}
+.MAX1:hover,.MAX2:hover,.MAX3:hover{
+	transform: scale(1.05,1.05);
+}
+.min{
+	width:200px;
+	height:150px;
+	line-height: 50px;
+	border:5px solid black;
+	padding:5px;
+	background:skyblue;
+	margin:50px;
+	border-radius: 20px;
+	float:left;
+	text-align: center;
+	text-shadow:5px 5px 5px grey;
+	box-shadow:5px 5px 5px black;
+	font-weight:bold;
+	font-family:"jiangnan";
+	font-size:25px;
+	color:red;
+}
+
+.imgztx{
+	position:relative;
+	display:inline-block;
+}
+.min:hover{
+	background-color:red;
+	box-shadow: -3px -3px 5px black;
+	transform: scale(1.15,1.15);
+}
+
+.imgztx:hover{
+	box-shadow:0px 0px 20px 10px skyblue;
+	border-radius: 50%;
+	transform: scale(1.15,1.15);
+}
+.zy:link,.zy:visited{
+	color:#000;
+	text-decoration: none;
+}
+.zy:hover{
+	color:red;
+	text-shadow:3px 3px 3px blue;
+
+}
+.image{
+	width:196px;
+	height:146px;
+	border-radius: 10px;
+	border:2px dashed black;
+
+}
+.ziye{
+	
+	width:200px;
+	height:30px;
+	line-height: 15px;
+	padding-top:15px;
+	margin: 600px auto;
+	background-color:white;
+	border-radius: 50px;
+	border:3px solid black;
+	font-family:"jiangnan";
+	box-shadow: 5px 5px 5px black;
+	font-size:18px;
+	font-weight:bold;
+}
+.ziye:hover{
+	background-color:skyblue;
+	transform: scale(1.25,1.25);
+}
+.zhuye{
+	width:500px;
+	height:500px;
+	margin:auto;
+	padding:10px;
+	border:5px solid black;
+	background-image:url("../img/background1.jpg");
+	background-size:cover;
+	border-radius: 50px;
+	box-shadow:10px 10px 10px black;
+}
+.zhuye:hover{
+	transform: scale(1.05,1.05);
+}
+.touxiang{
+	width: 160px;
+	height:160px;
+	border-radius: 50px;
+	line-height: 20px;
+}
+.pp{
+	font-weight:bold;
+	padding-left:100px;
+	padding-bottom: 7px;
+	margin:40px;
+	font-size: 20px;
+	text-shadow:2px 2px 2px white;
+	border:5px solid;
+	background-color:skyblue;
+	border-radius: 50px;
+	box-shadow: 5px 5px 5px black;
+
+}
+.pp:hover,.fwtk:hover,h1:hover{
+	transform: scale(1.1,1.1);
+}
+
+.imgtx{
+	width: 150px;
+	height:150px;
+	border-radius: 50%;
+	border:5px solid black;
+}
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 10px;
+	text-align: center;
+}
+header {
+	background-color:rgba(200,200,200,0.50);
+	padding: 10px;
+	text-align: center;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>网页外链式音乐播放器</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.5;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background-color: #f2f2f2;
+			padding: 20px;
+			text-align: center;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 24px;
+			margin: 0;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin: 0 auto;
+			width: 800px;
+			height:2000px;
+			padding: 20px;
+		}
+
+		.music-player {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin-bottom: 20px;
+			padding: 20px;
+			position: relative;
+			width:800px;
+			height:500px;
+		
+		}
+
+		.music-player iframe {
+			border: none;
+			height: 100%;
+			width: 100%;
+		}
+
+		.music-player .slider {
+			background-color: #ccc;
+			height: 10px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 100%;
+		}
+
+		.music-player .slider .handle {
+			background-color: #333;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			width: 10px;
+		}
+
+		.music-player .controls {
+			display: flex;
+			justify-content: space-between;
+			margin-top: 10px;
+		}
+
+		.music-player .controls button {
+			background-color: #333;
+			border: none;
+			color: #fff;
+			cursor: pointer;
+			font-size: 14px;
+			font-weight: bold;
+			padding: 5px 10px;
+		}
+
+		.music-player .controls button:hover {
+			background-color: #444;
+		}
+
+		footer {
+			background-color: #333;
+			color: #fff;
+			padding: 10px;
+			text-align: center;
+		}
+		body{
+			background: url("img/shuiying.jpg") repeat;
+		}
+		.exit{
+			float:left;
+			background:skyblue;
+			border-radius: 10px;
+		}
+		.exit:hover{
+			style-list：none;
+			background: rgba(215,215,215,1.00);
+			border:1px solid black;
+		}
+		.vid{
+			width:750px;
+		}
+	</style>
+</head>
+<body><header>
+	
+		<h1>音视频播放器</h1>
+	</header>
+	<div class="exit"><p><a href="首页目录.html">点击返回首页</a></p></div>
+	<div class="container">
+		<div class="music-player">
+		<video src="video/PV1.mp4" controls="controls" class="vid"></video>
+			<p>MV：轻涟 La vaguelette - HoYo-Mix</p>
+			<p>专辑：原神-「轻涟 La vaguelette」游戏原声EP专辑</p>
+		</div>
+		
+		<div class="music-player">
+			<iframe src="https://music.163.com/song?id=2100334024&userid=6482963930" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<div class="slider">
+				<div class="handle"></div>
+			</div>
+			<div class="controls">
+				<button>上一首</button>
+				<button>暂停</button>
+				<button>下一首</button>
+			</div>
+		</div>
+		
+		<div class="music-player">
+			<iframe src="https://music.163.com/song?id=1859652717&userid=6482963930" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			<div class="slider">
+				<div class="handle"></div>
+			</div>
+			<div class="controls">
+				<button>上一首</button>
+				<button>暂停</button>
+				<button>下一首</button>
+			</div>
+		</div>
+	
+	</div>
+	
+	<footer>
+		<p>&copy; 2024 Mr.Nie <sup>&reg;</sup> 保留所有权利</p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,86 @@
+body{
+	background:url("../img/shuiying.jpg") repeat;
+	/*background-size:cover;*/
+	
+}
+table{
+	width:600px;
+	height:500px;
+	margin-left:50px;
+	margin-top:20px;
+	border:2px solid black;
+	background-color:white;
+	box-shadow:5px 5px 5px black;
+	border-radius: 10px;
+	font-size:25px;
+}
+tr{
+	border:1px solid black;
+}
+
+.ss{
+	
+	text-align: center;
+}
+.MAXbox{
+	margin:auto;
+	margin-top:50px;
+	margin-bottom:100px;
+	width:700px;
+	height:650px;
+	border:5px solid black;
+	border-radius: 50px;
+	background-color:rgba(255,0,4,0.25);
+	box-shadow:5px 5px 5px black;
+}
+.MAXbox:hover,.bgm:hover{
+	transform: scale(1.05,1.05);
+}
+.shu{
+	writing-mode:vertical-lr;
+	letter-spacing: 20px;
+	padding-left:20px;
+}
+.tc{
+	text-align: center;
+}
+.a1:link,a1:visited{
+	color:skyblue;
+	text-decoration: none;
+}
+.a1:hover{
+	padding-left:15px;
+	padding-bottom:10px;
+	box-shadow:2px 2px 2px grey;
+	background-color:skyblue;
+}
+a:hover{
+	color:red;
+}
+.tc:hover{
+	background-color:gold;
+	box-shadow:2px 2px 2px grey;
+	padding-left:10px;
+	padding-bottom:10px;
+}
+.ss:hover{
+	background-color:rgba(0,253,211,0.10);
+	box-shadow:2px 2px 2px grey;
+	padding-left:5px;
+	padding-bottom:5px;
+}
+.bgm{
+	float:left;
+	margin-top:50px;
+	width:300px;
+	height:340px;
+	border:5px double black;
+	background-color:skyblue;
+	border-radius: 33px;
+}
+
+.mh{
+	width:300px;
+	height:280px;
+	border-radius: 25px;
+}

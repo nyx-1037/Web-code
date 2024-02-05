@@ -1,0 +1,51 @@
+body{
+	background:url("../img/shuiying.jpg") repeat;
+}
+h1{
+	color:red;
+	text-shadow:5px 5px 5px blue;
+}
+.grwz{
+	background:white;
+	margin-top:0px;
+	margin-right:0px;
+	border:5px solid black;
+	border-radius: 50px;
+	float:right;
+	width:200px;
+	height:70px;
+	font-size:20px;
+	line-height:35px;
+	text-align: center;
+	font-weight:bold;
+	box-shadow:5px 5px 5px black;
+}
+
+.fwtk{
+	width:250px;
+	height:20px;
+	border:3px solid black;
+	border-radius: 50px;
+	background:white;
+	margin-left:125px;;
+}
+.tk:hover{
+	color:red;
+}
+.denglu{
+	width:220px;
+	height:80px;
+	padding:5px;
+	margin:15px 130px;
+	font-size: 50px;
+	border:5px solid black;
+	background-color:white;
+	border-radius: 50px;
+	text-shadow: 5px 5px 5px red,10px 10px 10px green;
+	font-family:"jiangnan";
+	box-shadow:5px 5px 5px black;
+}
+.grwz:hover,.denglu:hover{
+	background: skyblue;
+	transform: scale(1.25,1.25);
+}
