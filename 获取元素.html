@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id = "date">2024-9-2</div>
+    <ul>
+        <li>无序列表项1</li>
+        <li>无序列表项2</li>
+        <li>无序列表项3</li>
+        <li>无序列表项4</li>
+        <li>无序列表项5</li>
+    </ul>
+    <ol>
+        <li>有序列表项1</li>
+        <li>有序列表项2</li>
+        <li>有序列表项3</li>
+    </ol>
+    <script>
+        //通过ID获取元素
+        var time = document.getElementById('date');
+        console.log(time);
+        /* time.onclick = function(){
+            alert('您点击的是日期');
+        } */
+        //通过标签名获取元素
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);   //获取的是指定标签构成的集合 （伪数组）
+        //获取列表3
+        lis[2].onmouseover =function(){
+            this.style.backgroundColor = 'skyblue';
+            this.style.color = 'white';
+            this.style.fontSize ='100px';
+            this.style.transition = '5s';
+        }
+        lis[2].onmouseout =function(){
+            this.style.backgroundColor = 'white';
+            this.style.color = 'black';
+            this.style.fontSize ='16px';
+            this.style.transition = '5s';
+        }
+        //遍历伪数组
+        for(var i in lis){
+            console.log(lis[i]);
+        }
+        var as = document.getElementsByTagName('a');
+        console.log(as);
+        var divs = document.getElementsByTagName('div');
+        console.log(divs);
+        //无论标签是0个，1个或多个，获得的都是标签集合（伪数组）
+    </script>
+</body>
+</html>

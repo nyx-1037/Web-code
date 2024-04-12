@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 动态显示当前时间，包括年月日星期几，时分秒。 -->
+    <h1 id="time"></h1>
+    <script>
+        function displayTime() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var day = now.getDay();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            
+            var weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var weekday = weekdays[day];
+            
+            var timeString = year + '年' + month + '月' + date + '日 ' + weekday
+             + ' ' + hours + ':' + minutes + ':' + seconds;
+            document.getElementById('time').textContent = timeString;
+            
+            setTimeout(displayTime, 1000);
+        }
+        displayTime();
+    </script>
+    
+</body>
+</html>
