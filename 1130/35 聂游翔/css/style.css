@@ -1,0 +1,52 @@
+*{
+	padding:0;
+	margin:0;
+}
+.box1{
+	border-top: 5px solid yellow;
+	width:545px;
+	
+}
+.image4{
+	float:left;
+	border:1px dashed red ;
+	padding:5px;
+	background-color:cadetblue;
+	margin:15px;
+}
+body{
+	
+}
+p{
+	text-indent: 2em;
+	padding:5px;
+	font-size: 12px;
+	line-height:25px;
+	
+}
+h1{
+	background:url("../img/rose.png") no-repeat right ;
+	color:blue;
+	margin:5px;
+}
+.box2{
+	list-style: none;
+	border-top: 5px solid yellow;
+	width:545px;
+}
+.image1,.image2,.image3{
+	float:left;
+	border:5px dashed green ;
+	padding:5px;
+	background-color:grey;
+	margin:20px;
+}
+.b1{
+	width:180px;
+	height:100px;
+	float:left;
+}
+.MAX{
+	width:545px;
+	height:600px;
+}

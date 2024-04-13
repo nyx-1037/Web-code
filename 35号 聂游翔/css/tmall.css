@@ -1,0 +1,46 @@
+.box{
+
+    border:5px solid red;
+
+}
+body{
+    background-color: aqua;
+}
+.img1{
+width: 135px;
+height: 135px;
+margin:7.5px;
+}
+p{
+    margin:2px;padding:2px;
+    font-size: 1px;
+}
+div{
+    margin:30px auto;
+    
+    width: 150px;
+    height: 310px;
+    background-color: white;
+}
+.price{
+    color:red;
+}
+.dianpu{
+    color:grey;
+    text-decoration: underline;
+}
+.top{
+    border-top: 1px solid gray;
+
+}
+.img2{
+    width:1;
+    height:1;
+}
+.youbian{
+    border-right: 1px solid gray;
+    color:chocolate;
+}
+.pingjia{
+    color:blue;
+}

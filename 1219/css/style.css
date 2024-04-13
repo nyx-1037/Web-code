@@ -1,0 +1,45 @@
+*{
+	padding:0;
+	margin:0;
+}
+body{
+	background: url("../img/shuiying.jpg") repeat;
+}
+@font-face {
+    font-family: "jiangnan";
+    src: url(字魂江南手书.ttf);
+}
+table{
+	margin:auto;
+	border:5px solid skyblue;
+}
+td{
+	padding:20px;
+}
+.box{
+	margin-top:150px;
+	height:610px;
+	width:350px;
+	margin:auto;
+	background-color:white;
+}
+h1{
+	text-align: center;
+	font-size:30px;
+	color:red;
+	font-family: "jiangnan";
+}
+.in{
+	margin-left:90px;
+}
+.photo{
+	width:100px;
+	height:50px;
+	margin-left:100px;
+	border:2px dashed black;
+	border-radius: 20px;
+}
+a:hover{
+	background-color:red;
+	text-decoretion:underline;
+}

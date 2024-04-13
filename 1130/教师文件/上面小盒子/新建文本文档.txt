@@ -1,0 +1,6 @@
+盒子的宽度：width: 545px;
+h2的设置：字体颜色：#069;  黄色线颜色：#FFCC00；
+               
+图片边框颜色：#FFCC00；
+图片内颜色：#bdd7e8; 
+段落文字设置：line-height:25px;font-size:12px;

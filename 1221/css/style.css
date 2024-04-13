@@ -1,0 +1,43 @@
+*{
+    padding:0;
+    margin:0;
+}
+h1{
+	color:red;
+	text-align: center;
+}
+body{
+    background: url("../img/timg.jpg") no-repeat;
+    background-size: cover;
+}
+.MAX{
+    width:200px;
+    height:270px;
+    border:1px solid white;
+    border-radius: 50px;
+    margin:150px auto;
+	padding:20px;
+}
+.min1{
+	margin-top:70px;
+	padding-top:2px;
+}
+.min2{
+	margin-top:20px;
+	padding-top:2px;
+}
+.image{
+padding-top:2px;
+}
+.login{
+	margin-top:20px;
+    margin-left:75px;
+}
+.min3{
+float:left;
+}
+.i2{
+	margin-top:20px;
+	padding-top:2px;
+    margin-left:35px;
+}

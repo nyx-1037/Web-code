@@ -1,0 +1,40 @@
+*{
+	padding:0;
+	margin:0;
+}
+table{
+    border:10px solid blue;
+    width:1600px;
+    height:600px;
+	text-align: center;
+	margin:auto;
+	font-size:12px;
+	
+}
+td{
+	width:500px;
+	height:80px;
+    border-bottom:3px solid grey;
+	border-right:3px solid grey;
+	
+}
+.kcb{
+	background: Gold;
+	font-size:30px;
+}
+.wx{
+	background: skyblue;
+	font-size:30px;
+}
+.tp{
+	background: url("../img/图片1.jpg") no-repeat center;
+	background-size: cover;
+	width:250px;
+}
+.tm{
+	background:#4ED78C;
+	font-size:30px;
+}
+.kc{
+	background: #6AE3FC;
+}

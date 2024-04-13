@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>余老板的Web数字文库</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.5;
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background-color: #f2f2f2;
+			padding: 20px;
+			text-align: center;
+		}
+
+		h1 {
+			color: #333;
+			font-size: 24px;
+			margin: 0;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin: 0 auto;
+			width: 800px;
+			height:500px;
+			padding: 20px;
+		}
+
+		.block {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin-bottom: 20px;
+			padding: 20px;
+			text-align: center;
+			height:200px;
+			width:200px;
+		}
+
+		.block h2 {
+			color: #333;
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.block ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.block li {
+			margin-bottom: 5px;
+		}
+
+		.block a {
+			color: #337ab7;
+			font-size: 14px;
+			text-decoration: none;
+		}
+
+		.block a:hover {
+			color: #23527c;
+		}
+
+		footer {
+			background-color: #333;
+			color: #fff;
+			padding: 5px;
+			text-align: center;
+			margin-top:140px;
+		}
+		.block:hover{
+			transform: scale(1.25,1.25);background: rgba(215,215,215,0.50);
+		}
+
+		a:hover{
+			text-shadow: 1px 1px 1px black;
+			border:1px solid red;
+			border-radius: 5px;
+			padding:2px;
+		}
+		.n{
+			border:none;
+		}
+	
+	</style>
+	 <script type="text/javascript"> 
+        var showcoo = function(){ 
+        this.size = 40; 
+        this.speed = 0.1; 
+        this.rise(); 
+        }
+        showcoo.prototype = { 
+        color:function(){  
+        var c = ['0','3','6','9','c','f'];  
+        var t = [c[Math.floor(Math.random()*100)%6],'0','f'];  
+        t.sort(function(){return Math.random()>0.5?-1:1;});  
+        return '#'+t.join(''); 
+        }, 
+        aheight:function(){ 
+        var h = document.documentElement.clientHeight; 
+        return Math.abs(Math.floor(Math.random()*h-200))+201; 
+        }, 
+        firecracker:function(){  
+        var b = document.createElement('div');  
+        var w = document.body.clientWidth;  
+        b.style.color = this.color();  
+        b.style.position = 'absolute';  
+        b.style.bottom = 0;  
+        b.style.left = Math.floor(Math.random()*w)+1+'px';  
+        document.body.appendChild(b);  
+        return b;  
+        }, 
+        rise:function(){ 
+        var o = this.firecracker(); 
+        var n = this.aheight(); 
+        var speed = this.speed; 
+        var e = this.expl; 
+        var s = this.size; 
+        var k = n;  
+        var m = function(){  
+        o.style.bottom = parseFloat(o.style.bottom)+k*speed+'px';  
+        k-=k*speed;  
+        if(k<2){  
+        clearInterval(clear);  
+        e(o,n,s,speed);  
+        }  
+        }  
+        o.innerHTML = '*';  
+        if(parseInt(o.style.bottom)<n){  
+        var clear = setInterval(m,20); 
+        } 
+        }, 
+        expl:function(o,n,s,speed){ 
+        var R = n/3; 
+        var Ri = n/6; 
+        var r = 0; 
+        var ri = 0; 
+        for(var i=0;i<s;i++){ 
+        var span = document.createElement('span'); 
+        var p = document.createElement('p'); 
+        span.style.position = 'absolute'; 
+        span.style.left = 0; 
+        span.style.top = 0; 
+        span.innerHTML = '*'; 
+        p.style.position = 'absolute'; 
+        p.style.left = 0; 
+        p.style.top = 0; 
+        p.innerHTML = '+'; 
+        o.appendChild(span); 
+        o.appendChild(p); 
+        } 
+        function spr(){ 
+        r += R*speed; 
+        ri+= Ri*speed/2; 
+        sp = o.getElementsByTagName('span'); 
+        p = o.getElementsByTagName('p'); 
+        for(var i=0; i<sp.length;i++){ 
+            sp[i].style.left=r*Math.cos(360/s*i)+'px'; 
+            sp[i].style.top=r*Math.sin(360/s*i)+'px'; 
+            p[i].style.left=ri*Math.cos(360/s*i)+'px'; 
+            p[i].style.top=ri*Math.sin(360/s*i)+'px'; 
+        } 
+        R-=R*speed; 
+        if(R<2){ 
+            clearInterval(clearI); 
+            o.parentNode.removeChild(o);  
+        }  
+        }  
+        var clearI = setInterval(spr,20);
+        }
+        }
+        window.onload = function(){
+        function happyNewYear(){
+        new showcoo(); 
+        } 
+        setInterval(happyNewYear,400); 
+        } 
+    </script> 
+</head>
+<body>
+	<header>
+		<h1>余老板的Web数字文库</h1>	
+
+	</header>
+
+	
+	<script>
+		alert("祝余老板生日快乐！！！");
+	</script>
+
+
+	<div class="container">
+		<div class="block">
+			<h2>C语言函数库查询网站</h2>
+			<ul>
+				<li><a href="https://www.cplusplus.com" target="_blank">国际版cplusplus</a></li>
+				<br>
+				<li><a href="https://zh.cppreference.com" target="_blank">中文版cppreference</a></li>
+			</ul>
+		</div>
+		
+		<div class="block">
+			<h2>代码托管平台</h2>
+			<ul>
+				<li><a href="https://github.com/" target="_blank">全球通用Github</a></li>
+				<br>
+				<li><a href="https://gitee.com/" target="_blank">国内代理Gitee</a></li>
+			
+			</ul>
+		</div>
+		<div class="block">
+			<h2>IT必备</h2>
+			<ul>
+				<li><a href="https://www.csdn.net/" target="_blank">CSDN官网</a></li>
+				<li><a href="https://ncre.neea.edu.cn/">NCRE全国计算机等级考试官网</a></li>
+				<li><a href="www.zhihu.com" target="_blank">知乎网</a></li>
+</ul>
+		</div>
+		<div class="block">
+			<h2>学习资源网站</h2>
+			<ul>
+				<li><a href="https://www.luffycity.com/">路飞学城</a></li>
+				<li><a href="https://www.lanqiao.cn/" target="_blank">蓝桥云课</a></li>
+				<li><a href="https://www.51zxw.net/" target="_blank">我要自学网</a></li>
+			</ul>
+		</div>
+		<div class="block">
+			<h2>好玩的工具</h2>
+			<ul>
+				<li><a href="https://chatexcel.com/" target="_blank">ChatExcel AI表格编辑</a></li>
+				<li><a href="https://open.bigmodel.cn/" target="_blank">智谱清言Web版</a></li>
+				<li><a href="https://www.jyshare.com/compile/12/" target="_blank">菜鸟在线编程编译</a></li>
+				
+			</ul>
+		</div>
+		<div class="block">
+			<h2>刷题必备</h2>
+			<ul>
+				<li><a href="https://acm.hdu.edu.cn/">杭电在线评测</a></li>
+				<li><a href="http://poj.org/">北大在线评测</a></li>
+				<li><a href="https://leetcode.cn/problemset/">LeetCode力扣</a></li>
+				<li><a href="https://www.luogu.com.cn/">洛谷</a></li>
+				<li><a href="https://www.nowcoder.com/">牛客网</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<footer>
+		<p>&copy; 2024 Mr.Nie <sup>&reg;</sup> 保留所有权利</p>
+	</footer>
+</body>
+</html>

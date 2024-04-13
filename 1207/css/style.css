@@ -1,0 +1,44 @@
+*{
+	padding: 0;
+	margin: 0;
+	list-style:none;
+}
+
+body{
+	font-size: 12px;
+	color:#222;
+	
+}
+.MAX{
+	width:300px;
+	height:215px;
+	margin:20px auto;
+	border:5px dashed black;
+	
+}
+.h{
+	font-size:20px;
+	color:darkgoldenrod;
+	height:35px;
+	line-height:35px;
+	border-bottom:5px solid red;
+	background:blue url("../img/2.png") no-repeat 20px 10px;
+	padding-left:51px;
+}
+.u{
+	background:yellow;
+	
+}
+.u li{
+	height:35px;
+	line-height:35px;
+	background:url("../img/1.png") no-repeat 15px ;
+	padding-left:40px;
+}
+.u li a:link li a:visited{
+	color:#666;
+	text-decoration:none;
+}
+
+
+
