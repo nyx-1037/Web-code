@@ -1,0 +1,49 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    background: url(../img/Background4.png) no-repeat;
+    background-size: cover;
+}
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin: 0;
+}
+
+header{
+    background-color: #ffffff61;
+    text-align: center;
+}
+.ShowPhoto{
+    width:750px;
+    height:800px;
+    margin:auto;
+    margin-top:20px;
+    padding:10px;
+    border:5px solid black;    
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 10px 10px 5px black;
+}
+.ShowPhoto ul li{
+    list-style: none;
+    width:200px;
+    height:150px;
+    margin:50px 20px;
+    float: left;
+    border:5px solid black;
+    box-shadow: 10px 10px 5px black;
+
+}
+.ShowPhoto ul li:hover{
+    transform: scale(1.2,1.2);
+    border:5px solid red;
+
+}
+.ShowPhoto ul li img{
+    width:200px;
+    height:150px;    
+
+}

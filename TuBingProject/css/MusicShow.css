@@ -1,0 +1,53 @@
+
+body{
+    background: url(../img/Background3.png) no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin: 0;
+}
+
+header{
+    background-color: #ffffff61;
+    text-align: center;
+}
+.videoShow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 790px;
+    height:800px;
+    padding: 20px;
+}
+
+.music-player {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    position: relative;
+    width:800px;
+    height:500px;
+    box-shadow: 20px 20px 5px black;
+
+}
+
+.music-player iframe {
+    border: none;
+    height: 100%;
+    width: 100%;
+}
+.vid{
+    width:750px;
+}
