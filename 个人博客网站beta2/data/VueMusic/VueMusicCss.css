@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+} 
+
+#app {
+    width: 650px;
+    height:1000px;
+    margin: 0 auto;
+    margin-top:50px;
+    border-radius: 45px;
+    background-color: rgba(255,255,255,0.3);
+    color:black;
+}
+#app h1 {
+    text-align: center;
+    border-bottom:5px solid black;
+}
+#app ul {
+    list-style: none;
+    margin:auto;
+}
+
+#app ul li {
+    margin: 3px;
+    padding:30px 5px;
+    border-radius: 3px;
+    line-height: 0.7;
+}
+
+#app ul li.active {
+    background-color: skyblue;
+
+}
+#app li:hover{
+    background-color: rgba(128, 128, 128, 0.30);
+    transform: scale(1.05);
+    border:2px solid red;
+}
+#app li:active{
+    transform: scale(1.01);
+    background-color: rgba(255, 0, 0, 0.25);
+    color:black;
+}
+#app .Vuebtn {
+    margin: 5px 60px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: skyblue;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+#app .Vuebtn:hover {
+    background-color: #42b983;
+    color: white;
+    transform: scale(1.05);
+}
+#app audio {
+    width: 400px;
+    height: 50px;
+    margin: 0 50px;
+    border-radius: 30px;
+    background-color: #D2E2F3;
+    margin-top:20px;
+    
+}
+#app audio:hover{
+    transform: scale(1.05);
+}
+#app audio,#app .Vuebtn:active{
+    transform: scale(1.01);
+}
+#app span{
+    color:red;
+    font-weight: bold;
+
+    font-size: 18px;
+}
+
+/* .VueControls {
+    width:500px;
+    height:150px;
+    margin:10px 50px;
+    padding: 10px 0;
+    line-height:1.1;
+    font-size: 20px;
+    color:red;
+    font-weight: bold;
+    text-align: center;
+    background-color: #D2E2F3;
+    border-radius: 50px;       
+
+}
+.VueControls:hover{
+    background-color:rgb(0, 168, 240);
+    transform: scale(1.05);
+} */

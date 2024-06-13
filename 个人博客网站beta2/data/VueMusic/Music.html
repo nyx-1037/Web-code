@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue音乐播放器</title>
+</head>
+    
+<body>
+    <div class="VueMaxBox">
+
+    
+    <div class="VueContainer" id='app'>
+        <br>
+        <h1>Vue音乐播放器2.0</h1>
+    
+
+        
+        <ul>
+            <li :class='{active:index===currentIndex}' v-for='(item,index) in musicData' :key='item.id'
+                @click='handleClick(index)' title="点击播放{{item.id}} - {{item.name}}">
+                <h2>{{item.id}} - {{item.name}}</h2>
+                <p>{{item.author}}</p>
+            </li>
+        </ul>
+        <!-- <div class="VueControls"> -->
+                <span>当前播放：{{currentIndex+1}} - {{musicData[currentIndex].name}}</p>
+                    <br>
+                <audio :src="getCurrentSongSrc" controls autoplay @ended='handleEnded'></audio>
+                <br>
+            <button @click='handleBefore' class="Vuebtn">上一首</button>
+            <button @click='handleNext' class="Vuebtn">下一首</button>
+        <!-- </div> -->
+        
+
+    
+    <link rel="stylesheet" href="VueMusicCss.css" type="text/css">
+    <script src="vue.js"></script>
+    <script src="VueMusicJs.js"></script>
+    </div>
+
+    
+</div>
+</body>
+</html>
