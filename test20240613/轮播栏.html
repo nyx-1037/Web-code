@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>图片轮播栏示例</title>
+<style>
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-item {
+    min-width: 100%;
+    flex: 0 0 100%;
+  }
+  .carousel-item img {
+    width: 100%;
+    display: block;
+  }
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+  }
+  .modal-content {
+    margin: 10% auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="carousel">
+  <div class="carousel-container">
+    <div class="carousel-item"><img src="img/Background1.png" alt="1"></div>
+    <div class="carousel-item"><img src="img/Background2.png" alt="2"></div>
+    <div class="carousel-item"><img src="img/Background3.png" alt="3"></div>
+
+    <!-- 添加更多图片 -->
+  </div>
+  <span class="prev">&#10094;</span>
+  <span class="next">&#10095;</span>
+</div>
+
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
+
+<script>
+  let index = 0;
+  const items = document.querySelectorAll('.carousel-item');
+  const totalItems = items.length;
+  const container = document.querySelector('.carousel-container');
+
+  function setIndex() {
+    container.style.transform = 'translateX(' + (-index * 100) + '%)';
+  }
+
+  function moveSlide(action) {
+    index = action === 'next' ? (index + 1) % totalItems : (index - 1 + totalItems) % totalItems;
+    setIndex();
+  }
+
+  let autoPlay = setInterval(function() {
+    moveSlide('next');
+  }, 3000);
+
+  document.querySelector('.prev').addEventListener('click', function() {
+    moveSlide('prev');
+    clearInterval(autoPlay);
+    autoPlay = setInterval(function() {
+      moveSlide('next');
+    }, 3000);
+  });
+
+  document.querySelector('.next').addEventListener('click', function() {
+    moveSlide('next');
+    clearInterval(autoPlay);
+    autoPlay = setInterval(function() {
+      moveSlide('next');
+    }, 3000);
+  });
+
+  // 点击图片放大
+  const modal = document.getElementById("myModal");
+  const img = document.getElementById("img01");
+  const close = document.getElementsByClassName("close")[0];
+
+  items.forEach(item => {
+    item.addEventListener('click', function() {
+      modal.style.display = "block";
+      img.src = this.querySelector('img').src;
+    });
+  });
+
+  close.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>

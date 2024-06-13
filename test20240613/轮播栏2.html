@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>多图片循环轮播栏示例</title>
+<style>
+  .carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-item {
+    min-width: 33.33%; /* 如果要显示更多图片，可以调整这个值 */
+    flex: 0 0 33.33%;
+  }
+  .carousel-item img {
+    width: 100%;
+    display: block;
+  }
+  .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+  }
+  .prev {
+    left: 0;
+  }
+  .next {
+    right: 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="carousel">
+  <div class="carousel-container">
+    <div class="carousel-item"><img src="img/Background1.png" alt="1"></div>
+    <div class="carousel-item"><img src="img/Background2.png" alt="2"></div>
+    <div class="carousel-item"><img src="img/Background3.png" alt="3"></div>
+    <!-- 添加更多图片 -->
+  </div>
+  <span class="prev">&#10094;</span>
+  <span class="next">&#10095;</span>
+</div>
+
+<script>
+  let index = 0;
+  const items = document.querySelectorAll('.carousel-item');
+  const totalItems = items.length;
+  const container = document.querySelector('.carousel-container');
+  const containerWidth = container.offsetWidth;
+  const itemWidth = containerWidth / Math.floor(containerWidth / items[0].offsetWidth);
+  let isTransitioning = false;
+
+  function setIndex() {
+    container.style.transform = 'translateX(' + (-index * itemWidth) + 'px)';
+  }
+
+  function moveSlide(action) {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    index = action === 'next' ? (index - 1) : (index + 1);
+    setIndex();
+    // 克隆第一个和最后一个元素，实现无缝循环
+    const firstClone = items[0].cloneNode(true);
+    const lastClone = items[totalItems - 1].cloneNode(true);
+    container.appendChild(firstClone);
+    container.insertBefore(lastClone, items[0]);
+    container.addEventListener('transitionend', function onTransitionEnd() {
+      container.removeEventListener('transitionend', onTransitionEnd);
+      if (index >= totalItems) {
+        index = 0;
+        container.style.transition = 'none';
+        setIndex();
+        container.style.transition = '';
+      } else if (index < 0) {
+        index = totalItems - 1;
+        container.style.transition = 'none';
+        setIndex();
+        container.style.transition = '';
+      }
+      container.removeChild(firstClone);
+      container.removeChild(lastClone);
+      isTransitioning = false;
+    }, { once: true });
+  }
+
+  let autoPlay = setInterval(function() {
+    moveSlide('next');
+  }, 3000);
+
+  document.querySelector('.prev').addEventListener('click', function() {
+    moveSlide('prev');
+    clearInterval(autoPlay);
+    autoPlay = setInterval(function() {
+      moveSlide('next');
+    }, 3000);
+  });
+
+  document.querySelector('.next').addEventListener('click', function() {
+    moveSlide('next');
+    clearInterval(autoPlay);
+    autoPlay = setInterval(function() {
+      moveSlide('next');
+    }, 3000);
+  });
+</script>
+
+</body>
+</html>
