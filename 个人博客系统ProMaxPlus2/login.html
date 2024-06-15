@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>个人博客系统-登录</title>
+    <link rel="stylesheet" href="data/css/loginStyle.css">
+    <script src="data/js/loginBG.js"></script>
+  
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-box">
+        <div class="register-box hidden">
+          <h1>欢迎注册</h1>
+          <input type="text" placeholder="请设置账号" required>
+          <input type="text" placeholder="请设置邮箱" />
+          <input type="password" placeholder="请设置密码" required>
+          <input type="password" placeholder="确认密码" />
+          <button id="none">立即注册</button>
+        </div>
+        <div class="login-box">
+          <h1>欢迎登录</h1>
+          <form id="loginForm" action="#" method="">
+          <input type="text" id="username" placeholder="请输入账号" required>
+          <input type="password" id="password" placeholder="请输入密码" required>
+          <br>
+          <input type="submit" class="loginBtn" value="立即登录"></button>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="con-box left">
+        <h2>欢迎来到<span>个人博客系统</span></h2>
+        <p>快来登录你的专属<span>博客</span>吧</p>
+        <img src="./data/img/loginImg.jpg" alt="" />
+        <p>已有账号?</p>
+        <button id="login">去登录</button>
+      </div>
+      <div class="con-box right">
+        <h2>欢迎来到<span>个人博客系统</span></h2>
+        <p>快来注册你的专属<span>博客</span>吧</p>
+        <img src="./data/img/loginImg.jpg" alt="" />
+        <p>没有账号？</p>
+        <button id="register">去注册</button>
+      </div>
+    </div>
+    <script src="./data/js/loginCheak.js">
+
+    </script>
+
+  </body>
+</html>
+
+
+<script>
+    // 动态背景
+    
+    // 蓝色
+    bubbly();
+  
+    // 紫色
+    bubbly({
+    colorStart: "#4c004c",
+    colorStop: "#1a001a",
+    bubbleFunc: () => `hsla(${Math.random() * 360}, 100%, 50%, ${Math.random() * 0.25})`
+    });
+  
+  </script>

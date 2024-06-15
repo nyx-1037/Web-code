@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人博客系统-实时时间显示</title>
+    <style>     
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            color:white;
+            text-align: center;
+        }
+        .background {
+            /* 设置背景图片 */
+            background-image: url('img/timeBackground.jpg');
+            /* 让背景图片覆盖整个页面 */
+            width:100%;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .timeShowBox {
+            font-size:18px;
+            /* 设置盒子居中 */
+            position: absolute;
+            top: 23%;
+            left: 52%;
+            transform: translate(-50%, -50%);
+            /* 设置盒子样式 */
+            width: 300px;
+            height: 200px;        
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+   <div class="background">
+    <div class="timeShowBox">
+    <h1 id="time"></h1>
+    
+
+    </div>
+</div>
+<script>
+    function displayTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var date = now.getDate();
+        var day = now.getDay();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        
+        var weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        var weekday = weekdays[day];
+        
+        var zeroString1,zeroString2,zeroString3;
+        if(hours<10)
+            zeroString1='0';
+        else
+            zeroString1='';
+
+        if(minutes<10)
+            zeroString2='0';
+        else
+            zeroString2='';
+
+        if(seconds<10)
+            zeroString3='0';
+        else
+            zeroString3='';
+
+        var timeString = year + '年' + month + '月' + date + '日 ' + weekday
+         + ' ' + zeroString1 + hours + ':' + zeroString2 + minutes + ':' + zeroString3 + seconds;
+        document.getElementById('time').innerHTML = timeString;
+        xtContent = timeString;
+        
+        setTimeout(displayTime, 1000);
+    }
+    
+    displayTime();
+</script>
+</body>
+</html>

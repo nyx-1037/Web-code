@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>个人博客系统-Web数字文库</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.app{
+			float:right;
+			margin-right:50px;
+			background-color: #ffffff;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.niudunbai59{
+			width: 80px;
+			height: 80px;
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.niudunbai-dot-59{
+			width: 20px;
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			transform-origin: center top;
+		}
+		.niudunbai-dot-59:before{
+			content: '';
+			width: 20px;
+			height: 20px;
+			position: relative;
+			border-radius: 50%;
+			background-color: #0093E9;
+			background-image: linear-gradient(160deg, #0093E9 0%, #ff0000 100%);
+			box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+		}
+		.niudunbai-dot-59:after{
+			content: '';
+			width: 2px;
+			height: 60px;
+			position: absolute;
+			top: 0;
+			background-color: #0093E9;
+			background-image: linear-gradient(160deg, #0093E9 0%, #ff6a00 100%);
+		}
+		.niudunbai-dot-59:first-child{
+			animation: eff59 1.618s infinite;
+		}
+		.niudunbai-dot-59:last-child{
+			animation: eff592 1.618s infinite;
+		}
+		@keyframes eff59{
+			0% {
+			transform: rotate(0deg);
+			animation-timing-function: ease-out;
+			}
+		
+			25% {
+			transform: rotate(70deg);
+			animation-timing-function: ease-in;
+			}
+		
+			50% {
+			transform: rotate(0deg);
+			animation-timing-function: linear;
+			}
+		}
+		@keyframes eff592{
+			0% {
+			transform: rotate(0deg);
+			animation-timing-function: linear;
+			}
+		
+			50% {
+			transform: rotate(0deg);
+			animation-timing-function: ease-out;
+			}
+		
+			75% {
+			transform: rotate(-70deg);
+			animation-timing-function: ease-in;
+			}
+		}
+	</style>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-size: 14px;
+			line-height: 1.25;
+			margin: 0;
+			padding: 0;
+			background-color:azure;
+		}
+
+		header {
+			background-color: rgba(135, 207, 235, 0.3);
+			padding: 20px;
+			text-align: center;
+			border-bottom: 2px dashed grey;
+			
+		}
+
+		h1 {
+			color: black;
+			font-size: 24px;
+			margin: 0;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			margin: 0 auto;
+			width: 900px;
+			height:2100px;
+			padding: 20px;
+			margin-top: 10px;
+			border-radius: 20px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			background-color:rgba(0, 255, 98, 0.05);
+		}
+		.leftBox{
+			width:100px;
+			height:130px;
+			float: left;
+			padding: 5px;
+			margin-top:10px;
+			margin-left:50px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			border-radius: 20px;
+		}
+		.block {
+			background-color: #fff;
+			border-radius: 50px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			margin-bottom: 20px;
+			padding: 20px;
+			text-align: center;
+			height:280px;
+			width:240px;
+		}
+
+		.block h2 {
+			color: #333;
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		.block ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.block li {
+			margin-bottom: 5px;
+		}
+
+		.block a {
+			color: #337ab7;
+			font-size: 14px;
+			text-decoration: none;
+		}
+
+		.block a:hover {
+			color: #23527c;
+			font-size:16px;
+			
+		}
+
+		footer {
+			background-color: #333;
+			color: #fff;
+			padding: 3px;
+			text-align: center;
+			margin-top:50px;
+		}
+		.block:hover{
+			transform: scale(1.49,1.40);
+			border-radius: 100px;
+			box-shadow:2px 2px 2px red;
+		}
+		.container:hover{
+			transform: scale(1.005,1.005);
+			border-radius: 30px;
+			border:2px dashed black;
+		}
+		a:hover{
+			font-weight:bold;
+			border:1px solid red;
+			border-radius: 10px;
+			padding:3px;
+			background-color: rgba(128, 128, 128, 0.2);
+		}
+		.n{
+			border:none;
+		}
+		.github{
+			color:white;
+			border:none
+		}
+		.showBox{
+			padding:18% 0px;
+			margin: auto;
+			text-align: center;
+			font-size: 130px;
+			border-radius: 50px;
+			border:1px solid black;
+			background-color: skyblue;
+		}
+		.showBox p{
+			font-size: 30px;
+			color:red;
+			font-weight: bold;
+		}
+	</style>
+
+</head>
+<body><div class="showBox">
+		Welcome to my website!
+		<p>Move the mouse to start using!</p>
+	</div>
+	<header>
+		<h1>Web数字文库Ultra Pro Max Plus</h1>	
+	</header>
+    
+	<script>
+		var startShow=document.getElementsByClassName('showBox');
+		startShow[0].onmouseover=function(){
+            this.style.backgroundColor = 'skyblue';
+			this.style.color = 'skyblue';
+			this.style.padding = '1px';
+			this.style.borderRadius = '50px';
+            this.style.fontSize ='5px';
+			this.style.border = '1px dashed black';
+            this.style.transition = '6.618s';
+			this.innerHTML=' Move the mouse to start using!';
+			this.style.borderRadius ='1px';
+        }
+        	
+	</script>
+	<div class="leftBox">
+		<h4>
+			<script>
+			var now = new Date();
+			var hours = now.getHours();
+			var hellowString;
+			if(hours>=6 && hours<=12)
+				hellowString='早上好！';
+			else if(hours>=13 && hours<=17)
+				hellowString='下午好！';
+			else if((hours>=18 && hours<=24)||(hours>=1 && hours<=5))
+				hellowString='晚上好！';
+			document.write(hellowString);
+		</script>
+		</h4>
+		<h4 id="time"></h4>
+	</div>
+	
+	<script>
+        function displayTime() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var day = now.getDay();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            
+            var weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var weekday = weekdays[day];
+            
+			var zeroString1,zeroString2,zeroString3;
+			if(hours<10)
+				zeroString1='0';
+			else
+				zeroString1='';
+
+			if(minutes<10)
+				zeroString2='0';
+			else
+				zeroString2='';
+
+			if(seconds<10)
+				zeroString3='0';
+			else
+				zeroString3='';
+
+            var timeString = '当前时间：\n'+ year + '年' + month + '月' + date + '日 ' + weekday
+             + ' ' + zeroString1 + hours + ':' + zeroString2 + minutes + ':' + zeroString3 + seconds;
+            document.getElementById('time').innerHTML = timeString;
+			xtContent = timeString;
+            
+            setTimeout(displayTime, 1000);
+        }
+        
+        displayTime();
+    </script>
+		<div class="app">
+			<div class="niudunbai59">
+			  <div class="niudunbai-dot-59"></div>
+			  <div class="niudunbai-dot-59"></div>
+			  <div class="niudunbai-dot-59"></div>
+			  <div class="niudunbai-dot-59"></div>
+			</div>
+		  </div>
+
+
+	<div class="container">
+		<div class="block">
+			<h2>C语言函数库查询网站</h2>
+			<ul>
+				<li><a href="https://www.cplusplus.com" target="_blank" title="（英文版）可以查询C/C++的各种库函数的网站">国际版cplusplus</a></li>
+				<br>
+				<li><a href="https://zh.cppreference.com" target="_blank" title="（中文版）可以查询C/C++的各种库函数的网站">中文版cppreference</a></li>
+			</ul>
+		</div>
+		
+
+		<div class="block">
+			<h2>代码托管平台</h2>
+			<ul>
+				<li><a href="https://github.com/" target="_blank" title="世界上最好玩的网站">Github</a></li>
+				<li><a href="https://gitee.com/" target="_blank" title="Gitee开源中国">Gitee开源中国</a></li>
+				<li><a href="https://gitlab.com/" target="_blank" title="搭建私服很方便">Gitlab</a></li>
+				<li><a href="https://coding.net/" target="_blank" title="腾讯云代码仓库">Coding</a></li>
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>IT博客资讯</h2>
+			<ul>
+				<li><a href="https://www.csdn.net/" target="_blank" title="CV程序员专用博客">CSDN</a></li>
+				<li><a href="https://www.ithome.com" target="_blank" title="适合闲得无聊时看的IT资讯 广告泛滥">IT之家</a></li>
+				<li><a href="https://www.zhihu.com" target="_blank" title="啥都可以问">知乎网</a></li>
+				<li><a href="https://juejin.cn/" target="_blank" title="比CSDN更高级">稀土掘金</a></li>
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>学习资源网站1</h2>
+			<ul>
+				<li><a href="https://www.luffycity.com/" target="_blank" title="都是一些引流课">路飞学城</a></li>
+				<li><a href="https://www.lanqiao.cn/" target="_blank" title="听不懂一点也打不过一点">蓝桥云课</a></li>
+				<li><a href="https://www.bilibili.com" target="_blank" title="哔哩哔哩大学">哔哩哔哩</a></li>
+				<li><a href="https://www.icourse163.org/" target="_blank" title="国家提供的精品免费公开课">中国大学MOOC</a></li>
+				
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>学习资源网站2</h2>
+				<ul>
+					<li><a href="https://www.runoob.com" target="_blank" title="越菜越爱学">菜鸟教程</a></li>
+					<li><a href="https://www.boxuegu.com" target="_blank" title="用的人都博学多才">博学谷</a></li>
+					<li><a href="https://www.itheima.com" target="_blank" title="一个想改变中国IT教育的卖课机构">黑马程序员</a></li>
+				</ul>
+			</div>
+
+
+		<div class="block">
+			<h2>学习资源网站3(外网)</h2>
+				<ul>
+					<li><a href="https://www.khanacademy.org/" target="_blank" title="免费但全是英文看不懂">khan学院</a></li>
+					<li><a href="https://www.coursera.org" target="_blank" title="和楼上一样看不懂但免费">Coursera在线学习平台</a></li>
+					<li><a href="https://www.w3school.com.cn/h.asp" target="_blank" title="用来学Web前端挺好的">w3school教程</a></li>
+					<li><a href="https://developer.mozilla.org/zh-CN" target="_blank" title="国外很好的一个学习资源网站">MDN教程工具</a></li>
+					<li><a href="https://www.freecodecamp.org" target="_blank" title="免费学IT的一个非盈利机构">freeCodeCamp教程</a></li>
+					<li><a href="https://www.edx.org" target="_blank" title="挺好的 但全是英文">edX课程</a></li>
+				</ul>
+			</div>
+
+
+		<div class="block">
+			<h2>IT刷题必备</h2>
+				<ul>
+				<li><a href="https://acm.hdu.edu.cn/" target="_blank" title="杭州电子科技大学在线评测OJ">杭电在线OJ</a></li>
+				<li><a href="http://poj.org/" target="_blank" title="北京大学在线评测OJ">北大在线OJ</a></li>
+				<li><a href="https://leetcode.cn/problemset/" target="_blank" title="全球最知名的刷题网站，就是有亿点难">LeetCode力扣</a></li>
+				<li><a href="https://www.nowcoder.com/" target="_blank" title="国内好用的刷题网站">牛客网</a></li>
+				<li><a href="https://www.luogu.com.cn/" target="_blank" title="美丽国知名刷题网站">洛谷网</a></li>
+				<li><a href="https://www.patest.cn/" target="_blank" title="很重要的IT水平测试网站">PAT甲级/乙级/高级在线题库</a></li>
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>AI工具</h2>
+			<ul>
+				<li><a href="https://chatexcel.com/" target="_blank" title="北京大学研发的AI制作表格">ChatExcel AI表格编辑</a></li>
+				<li><a href="https://www.ChatGLM.cn" target="_blank" title="国内好用的很，清华大学主导研发">智谱清言Web</a></li>
+				<li><a href="https://explorer.globe.engineer/" target="_blank" title="免费的AI搜索引擎">Globe AI搜索</a></li>
+				<li><a href="https://app.pixverse.ai" target="_blank" title="免费合成AI视频">pixverse免费AI视频生成</a></li>
+				<li><a href="https://chapta.com/" target="_blank" title="让剧本动起来">绘本动画AI一键生成</a></li>
+				<li><a href="https://www.midjourney.com/" target="_blank" title="让AI画起来">Midjourney AI绘画</a></li>
+				<li><a href="https://www.suno.ai" target="_blank" title="让AI唱起来">AI音频合成</a></li>
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>媒体阅览</h2>
+			<ul>
+				<li><a href="https://24hbook.com/" target="_blank" title="可是它免费诶">24h搜书网</a></li>
+				<li><a href="https://lib.24hbook.com/" target="_blank" title="万能的电子书查看器">24h在线阅读器</a></li>
+				<li><a href="https://search.hlbox.top" target="_blank" title="因为也免费，所以也很不错">欢乐盒子</a></li>
+				<li><a href="https://www.bq90.cc/" target="_blank" title="知名网络小说神器">笔趣阁免费小说</a></li>
+				<li><a href="https://www.wikipedia.org" target="_blank" title="可以用来查各种百科知识">Wikipedia在线百科全书</a></li>
+				<li><a href="https://m.feibzw.com" target="_blank" title="小说搜素一站全">飞速中文网</a></li>
+				<li><a href="https://nowhots.com" target="_blank" title="可以阅览实时热点新闻的网站">即时热点</a></li>
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>适合应届生实习投简历的招聘网站</h2>
+			<ul>
+				<li><a href="https://www.ciwei.net" target="_blank">刺猬实习</a></li>
+				<li><a href="https://bbs.yingjiesheng.com" target="_blank">应届生论坛</a></li>
+				<li><a href="https://www.shixiseng.com" target="_blank">实习僧</a></li>
+				<li><a href="https://www.lagou.com" target="_blank">拉勾网</a></li>
+				<li><a href="https://www.liepin.com" target="_blank">猎聘网</a></li>
+				<li><a href="https://www.yingjiesheng.com" target="_blank">应届生</a></li>
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>在线工具</h2>
+			<ul>
+				<li><a href="https://www.tldraw.com/" target="_blank" title="很好用的一个网页小黑板">Tldraw在线画板工具</a></li>
+				<li><a href="https://www.jyshare.com/compile/12/" target="_blank" title="越菜越爱用">菜鸟在线工具</a></li>
+				<li><a href="https://www.bqrdh.com" target="_blank" title="不求人在线工具集合">不求人导航工具</a></li>
+				<li><a href="https://www.latexlive.com/" target="_blank" title="学高等数学必备神器">Latexlive在线公式编辑器</a></li>
+				<li><a href="https://www.tablesgenerator.com/" target="_blank" title="更方便的表格一键生成">Tablesgenerator表格生成器</a></li>
+				<li><a href="https://www.processon.com/" target="_blank" title="用来做思维导图很不错">Processon在线流程图</a></li>
+				<li><a href="https://www.draw.io/" target="_blank" title="跟楼上一样">Draw.io在线流程图</a></li>
+				<li><a href="https://1000tool.com" target="_blank" title="千和工具">千和工具</a></li>
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>垂直聚合搜索网站</h2>
+			<ul>
+				<li><a href="https://www.pxhere.com/zh/" target="_blank" title="世界著名的免费摄影图库">PxHere图片搜索网站</a></li>
+				<li><a href="https://www.xibuluo.com" target="_blank" title="万能软件搜索网站">西部落软件搜索</a></li>
+				<li><a href="https://www.yandex.com" target="_blank" title="俄罗斯最大的搜索引擎">yandex万能搜索</a></li>
+				<li><a href="https://air.tls.moe/" target="_blank" title="各种动漫都有">动漫搜索</a></li>
+				<li><a href="https://www.xqu5.com" target="_blank" title="各种好玩的软件集合">兴趣屋软件集合</a></li>
+				<li><a href="https://aishouce.com/" target="_blank" title="各种AI工具集合">AI工具集合</a></li>
+				<li><a href="https://pixabay.com" target="_blank" title="免费获取各种照片视频素材">pixabay免费素材</a></li>
+				<li><a href="https://www.pptsupermarket.com/" target="_blank" title="免费ppt模板一键生成">ppt超级市场</a></li>
+			</ul>
+		</div>
+
+		<div class="block">
+			<h2>其他超链接1</h2>
+			<ul>
+				<li><a href="https://snapdrop.net/" target="_blank" title="一个很方便的跨设备传输文件工具">Snapdrop跨设备传输</a></li>
+				<li><a href="https://gamemcu.com/su7/" target="_blank" title="以最牛逼的视角展示小米su7">小米su7 3D展示</a></li>
+				<li><a href="https://www.shijuan1.com" target="_blank" title="能找到各种试卷">第一试卷网</a></li>
+				<li><a href="https://www.chaoxing.com" target="_blank" title="当代大学生刷课必备">学习通</a></li>
+				<li><a href="https://www.tampermonkey.net/index.php" target="_blank" title="啥都能改的脚本">篡改猴</a></li>
+				<li><a href="https://game.ur1.fun/" target="_blank" title="各种好玩的网页小游戏">H5 在线小游戏合集</a></li>
+
+			</ul>
+		</div>
+
+
+
+		<div class="block">
+			<h2>其他工具</h2>
+			<ul>
+				<li><a href="https://tiqu.cc/" target="_blank" title="网络视频一键提取">网络视频图片提取器</a></li>
+				<li><a href="https://www.canva.com" target="_blank" title="可以用来做PPT">canvas设计工具</a></li>
+				<li><a href="https://www.soogif.com/" target="_blank" title="一款强大的Gif制作工具">Soo-Gif制作工具</a></li>
+				<li><a href="https://cloudconvert.com/" target="_blank" title="在线转换各种文件格式">CloudConvert在线格式转换</a></li>
+				<li><a href="https://undraw.co/illustrations" target="_blank" title="免费获取各种矢量图">Undraw免费矢量图</a></li>
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>网页设计辅助工具</h2>
+			<ul>
+				<li><a href="https://www.framer.com/" target="_blank" title="Framer网站设计工具">Framer网站设计工具</a></li>
+				<li><a href="https://wickedbackgrounds.com/app" target="_blank" title="背景图片生成">SVG背景生成器</a></li>
+				<li><a href="https://www.npmjs.com/package/bubbly-bg" target="_blank" title="Bubbly背景生成器">bubbly网页动态背景生成器</a></li>
+				<li><a href="https://css-generators.com/" target="_blank" title="CSS样式生成器">Generators-CSS样式生成器</a></li>
+				<li><a href="https://www.cssportal.com/" target="_blank" title="CSS样式生成器">Portal-CSS样式生成器</a></li>
+				<li><a href="https://css.bqrdh.com" target="_blank" title="无脑一键生成CSS样式">可视化CSS一键生成</a></li>
+			</ul>
+		</div>
+
+
+		<div class="block">
+			<h2>Null</h2>
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+
+		
+		<div class="block">
+			<h2>Null</h2>
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+
+		<div class="block">
+			<h2>Null</h2>
+			<ul>
+				<li></li>
+			</ul>
+		</div>
+
+
+	</div>
+	<footer>
+		<p>&copy; 2024 PC Beta3.3 By Mr.Nie <sup>&reg;</sup> 保留所有权利</p>
+		<p>持续更新中，欢迎投稿至邮箱 <a> nyx1037678078@Gmail.com </a></p>
+		<p><a class="github" href="https://www.github.com/nyx-1037" target="_blank" title="点击跳转">点击进入作者GitHub主页</a></p>
+		<p>PC版更新于2024.06.11</p>
+	</footer>
+		<script>
+			var aa=document.getElementsByClassName("block");
+			function fa1(){
+            this.style.backgroundColor = 'skyblue';
+            this.style.fontSize ='20px';
+			this.style.lineHeight ='1.15';
+            this.style.transition = '1s';
+        }
+        	function fa2(){
+            this.style.backgroundColor = 'white';
+            this.style.fontSize ='16px';
+            this.style.transition = '0.28s';
+        }
+		for(var i=0;i<aa.length;i++){
+			aa[i].onmouseover=fa1;
+			aa[i].onmouseout=fa2;
+		}
+		</script>
+
+</body>
+</html>

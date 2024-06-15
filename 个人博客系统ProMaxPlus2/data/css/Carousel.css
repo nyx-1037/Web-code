@@ -1,0 +1,26 @@
+.carousel {
+    width: 1600px;
+    height:180px;
+    overflow: hidden;
+    position: relative;
+    margin:auto;
+  }
+  .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-item {
+    min-width: 20.00%; /* 如果要显示更多图片，可以调整这个值 */
+    flex: 0 0 20.00%;
+  }
+  .carousel-item:hover{
+    transform: scale(1.1);
+  }
+  .carousel-item:active{
+    transform: scale(0.95);
+  }
+
+  .carousel-item img {
+    width: 100%;
+    display: block;
+  }

@@ -1,0 +1,166 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: url('../img/shuiying.jpg') repeat;
+}
+
+header{
+    background-color: black;
+    color:white;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 3px solid grey;
+    height:220px;
+
+}
+#header, #footer, #leftBox, #contentBox {
+    transition: background-color 2s, color 2s;
+}
+#backgroundContainer{
+    transition: background-image 1s;
+}
+
+.maxBox{
+    min-width:1550px;
+    max-width:100%;
+    height:1707px;
+    margin:0 auto;
+    position: relative;
+    background: url('../img/background1.png') repeat;
+    background-size: cover;
+    border:5px solid black;
+}
+
+
+.leftBox{
+    width:170px;
+    height:1394px;
+    background-color: rgba(0, 0, 0, 0.50);
+    color:white;
+    float:left;
+    list-style: none;
+    border-bottom: 3px solid black;
+    border-right:3px solid black;
+    text-align: center;
+}
+.leftBox li{
+    padding: 10px;
+    border-bottom: 3px solid black;
+    transition: 1s;
+}
+.leftBox li:hover{
+    background-color: white;
+    color:black;
+    transform: scale(1.1);
+}
+
+.rightBox{
+    width:1320px;
+    height:1300px;
+    float:right;
+    
+    
+
+
+}
+/* #VueDiv{
+    width:800px;
+    height:1300px;
+    margin:auto;
+} */
+#MyData{
+    border-radius: 20%;
+    padding:2px;
+}
+.LOGO{
+    width:120px;
+    height:120px;
+    float:left;
+    margin-left:25px;
+    margin-top:10px;
+    border-radius: 50%;
+}
+.HeadPhoto{
+    border-radius: 50%;
+    border:2px solid black;
+}
+.contentBox{
+    width:1000px;
+    height:1250px;
+    color:white;
+    border:3px solid black;
+    box-shadow:10px 10px 20px black;
+    border-radius: 50px;
+    text-align: center;
+    margin: auto;
+    margin-top:20px;
+    background-color: rgba(0, 0, 0, 0.50);
+    padding: 20px;
+    border-bottom: 3px solid black;
+    border-right:3px solid black;
+    
+}
+.contentBox h1{
+    font-size: 40px;
+    padding: 20px;
+}
+.contentBox p{
+    font-size: 20px;
+    padding: 20px;
+}
+.contentBox ul{
+    padding: 20px;
+    margin: auto;
+    list-style: none;
+}
+
+.contentBox ul li{
+    list-style: none;
+    padding: 10px;
+    margin: 5px auto;
+    width:600px;
+    height:30px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: 1s;
+}
+.contentBox ul li:hover{
+    background-color: skyblue;
+    color:red;
+    transform: scale(1.1);
+    transition: 1s;
+}
+.contentBox ul li:active{
+    background-color: rgb(255, 0, 0, 0.5);
+    color:white;
+}
+
+.contentBox ul li a{
+    color:black;
+    text-decoration: none;
+    font-size: 20px;
+}
+.contentBox ul li a:hover{
+    color:white;
+}
+
+.contentBox ul li a:active{
+    color:black;
+}
+.clockShow{
+    width:600px;
+    height:600px;
+    border-radius: 50%;
+}
+footer{
+    height:50px;
+    margin-top:80px;
+    background-color: black;
+    color:white;
+    text-align: center;
+    padding: 10px;
+    border-top: 3px solid black;
+
+}

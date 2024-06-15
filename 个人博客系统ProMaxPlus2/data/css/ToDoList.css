@@ -1,0 +1,157 @@
+#ToDoList {
+    width:800px;
+    height:800px;
+    background-color: #333;
+    margin:auto;
+    border-radius: 50px;
+}
+
+#ToDoList header {
+    height: 50px;
+    background: #333;
+    background: rgba(47, 47, 47, 0.98);
+}
+
+#ToDoList section {
+    margin: 0 auto;
+}
+
+#ToDoList label {
+    float: left;
+    width: 100px;
+    line-height: 50px;
+    color: #DDD;
+    font-size: 24px;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#ToDoList header input {
+    float: right;
+    width: 60%;
+    height: 24px;
+    margin-top: 12px;
+    text-indent: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.24), 0 1px 6px rgba(0, 0, 0, 0.45) inset;
+    border: none
+}
+
+#ToDoList input:focus {
+    outline-width: 0
+}
+
+#ToDoList h2 {
+    position: relative;
+}
+
+#ToDoList span {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    display: inline-block;
+    padding: 0 5px;
+    height: 20px;
+    border-radius: 20px;
+    background: #E6E6FA;
+    color:skyblue;
+    line-height: 22px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+#ToDoList ol,ul {
+    padding: 0;
+    list-style: none;
+}
+
+#ToDoList li input {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+#ToDoList p {
+    margin: 0;
+}
+
+#ToDoList li p input {
+    top: 3px;
+    /* left: 40px; */
+    width: 70%;
+    height: 20px;
+    line-height: 14px;
+    text-indent: 5px;
+    font-size: 14px;
+}
+
+#ToDoList li {
+    height: 35px;
+    line-height: 0;
+    background: skyblue;
+    position: relative;
+    margin-bottom: 10px;
+    padding: 0;
+    border-radius: 3px;
+    border-left: 5px solid #629A9C;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+}
+
+#ToDoList ol li {
+    cursor: move;
+}
+
+#ToDoList ul li {
+    border-left: 5px solid #999;
+    opacity: 0.5;
+    
+}
+
+#ToDoList li a {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    border-radius: 14px;
+    border: 6px double #FFF;
+    background: #CCC;
+    line-height: 14px;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#ToDoList footer {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    margin-top:100px;
+}
+
+#ToDoList footer a {
+    color: #666;
+    text-decoration: none;
+    color: #999;
+}
+
+@media screen and (max-device-width: 620px) {
+    section {
+        width: 96%;
+        padding: 0 2%;
+    }
+}
+
+@media screen and (min-width: 620px) {
+    section {
+        width: 600px;
+        padding: 0 10px;
+    }
+}
