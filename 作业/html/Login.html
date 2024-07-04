@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+      
+      :root{--ruler: 16px;
+--color-red: #AE1100;
+--color-bg: #EBECF0;
+--color-shadow: #BABECC;
+--color-white: #FFF;}
+
+body, html {
+  background-color:var(--color-bg);  
+}
+
+body, input, select, textarea, button {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: var(--ruler);
+}
+
+div, p {
+color: var(--color-shadow);
+text-shadow: 1px 1px 1px var(--color-white);
+margin-top: 30px;
+margin-bottom: 30px;
+}
+
+
+form {
+width: var(--ruler)*20;
+margin: 0 auto;
+margin-top: 50px;
+height: 500px;
+width: 300px;
+padding: 0 100px 100px 100px;
+border-radius: 30px;
+border: #61677C 1px solid;
+}
+
+.segment {
+padding: var(--ruler)*2 0;
+text-align: center;
+}
+
+button, input {
+border: 0;
+outline: 0;
+font-size: var(--ruler);
+border-radius: 32px;
+padding: var(--ruler);
+background-color:var(--color-bg);
+text-shadow: 1px 1px 0 var(--color-white);
+}
+
+label {
+display: block;
+margin-bottom: var(--ruler)*1.5;
+width: 100%;
+margin-bottom: 25px;
+}
+
+input {
+margin-right: var(--ruler)/2;
+box-shadow:  inset 2px 2px 5px var(--color-shadow), inset -5px -5px 10px var(--color-white);
+width: 100%;
+box-sizing: border-box;
+transition: all 0.2s ease-in-out;
+appearance: none;
+-webkit-appearance: none;
+
+&:focus {
+  box-shadow:  inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-white);
+}
+}
+
+button {
+color:#61677C;
+font-weight: bold;
+box-shadow: -5px -5px 20px var(--color-white),  5px 5px 20px var(--color-shadow);
+transition: all 0.2s ease-in-out;
+cursor: pointer;
+font-weight: 600;
+
+&:hover {
+  box-shadow: -2px -2px 5px var(--color-white), 2px 2px 5px var(--color-shadow);
+}
+&:active {
+  box-shadow: inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-white);
+}
+
+&.unit {
+  border-radius: 8px;
+  line-height: 0;
+  width: var(--ruler)*3;
+  height: var(--ruler)*3;
+  display:inline-flex;
+  justify-content: center;
+  align-items:center;
+  padding: 20px;
+  margin-left:8px;
+  font-size:var(--ruler)*1.2;
+  .icon {
+    margin-right: 0; 
+  }
+}
+
+&.red {
+  display: block;
+  width: 100%;
+  color:var(--color-red);
+}
+}
+
+.input-group {
+display: flex;
+align-items: center;
+justify-content: flex-start;
+
+label {
+  margin: 0;
+  flex: 1;
+}
+}
+h1{
+margin: 60px 40px 40px 40px;
+}
+</style>
+</head>
+<body>
+    <form>
+        <div class="segment">
+            <h1>Login on</h1>
+        </div>
+        <label>
+          <input type="text" placeholder="Account"/>
+        </label>
+        <label>
+          <input type="password" placeholder="Password"/>
+        </label>
+        <button class="red" type="button"> Log in</button>
+        <script>
+          var Login=document.querySelector(".red");
+        Login.onclick=function(){
+            window.location.href="网站.html";
+        }
+        </script>
+        <div class="segment">
+          <button class="unit" type="button"></button>
+          <button class="unit" type="button"></button>
+          <button class="unit" type="button"></button>
+        </div>
+        <div class="input-group">
+          <label>
+            <input type="text" placeholder="Email Address"/>
+          </label>
+          <button class="unit" type="button"></button>
+        </div>
+      </form>
+</body>
+</html>

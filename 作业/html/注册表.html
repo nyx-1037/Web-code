@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/注册表.css">
+    <script>
+        function validateName(){
+            //所有的表单项元素都是value属性
+            var name=document.getElementById("用户名").value;
+            var msg=document.getElementById("nameMsg");
+            if(name==null||name==""){
+                msg.innerHTML="用户名不能为空！";
+                msg.style.color="red";
+                return false;
+            }else if(name.length<6){
+                msg.innerHTML="用户名长度必须为大于6的！";
+                msg.style.color="red";
+                return false;
+            }
+            msg.innerHTML="用户名可用";
+            msg.style.color="green";
+            return true;
+        }
+     
+        function validatePwd(){
+            var password1=document.getElementById("password1").value;
+            var msg=document.getElementById("pwdMsg1");
+            var reg=/(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}/
+            var result=reg.test(password1);
+            if(password1==null||password1==""){
+                msg.innerHTML="密码不能为空!";
+                msg.style.color="red";
+                return false;	
+            }
+            if(result==false){
+                msg.innerHTML="密码格式不正确";
+                msg.style.color="red";
+                return false;
+            }
+            msg.innerHTML="密码合法";
+            msg.style.color="green";
+            return true;
+        }
+        function confirmPwd(){
+            var pwd1=document.getElementById("password1").value;
+            var pwd2=document.getElementById("password2").value;
+            var msg=document.getElementById("pwdMsg2");
+            if(pwd1!=pwd2){
+                msg.innerHTML="两次输入的密码不一致！";
+                msg.style.color="red";
+                return false;
+            }
+            msg.innerHTML="两次输入的密码一致";
+            msg.style.color="green";
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <body>
+        <div class="from">
+            <img class="bgc" src="../img/注册.jpg" alt="">
+            <div class="submit">
+                <span class="form_title">注册</span>
+                <div class="form_input">
+                    <span>用户名：</span>
+                    <input class="inputs" id="userName" type="text" value="长度大于六" onblur="validateName()">
+                </div>
+                <div class="form_input">
+                    <span>密码:</span>
+                    <input class="inputs" id="password1" type="text" value="不少于8位数,包含大小写字母，数字" onblur="validatePwd()">
+                </div>
+                <span id="pwdMsg1"></span>
+                <div class="form_input">
+                    <span>确认密码：</span>
+                    <input class="inputs" id="password2" type="text" value="请确认一致" onblur="confirmPwd()">
+                </div>
+                <span id="pwdMsg2"></span>
+                <div class="btn_submit">
+                    <a href="网站.html">
+                        <button class="btn">提交</button></a>
+                    <a href="网站.html" class="back"><button class="home_href">首页</button></a>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+</body>
+</html>

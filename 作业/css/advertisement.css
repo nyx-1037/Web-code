@@ -1,0 +1,27 @@
+#content_bottem{
+    width: 1423px;
+    float: left;
+    height: 299px;
+    position: relative;
+}	
+#big_border{
+    width: 97%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    border: 1px solid white;
+    height: 259px;				
+}
+#small_border_p{
+    margin: 40px 0px 0px 140px;
+    height: 199px;
+}
+#small_border_p span{
+    color: #FFFFFF;
+    font-size: 71px;
+}
+#small_border_p p{
+    color: #FFFFFF;
+    font-size: 30px;
+}
+#content_bottem{background: url(../img/6.jpg) no-repeat;background-size: cover;}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/body.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/advertisement.css">
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
+    <title>清烨</title>
+    <style>
+         @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+        *{
+            margin:0;
+            padding:0
+        }
+        #Head{
+            border-style: solid;
+            border-color: aqua;
+            height: 50px;
+        }
+        
+        #blank{
+            height: 15px;
+        }
+        #title{
+            height: 275px;
+            background-image: url(../img/destop2.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 70%;
+            border-radius: 10px;
+            background-attachment: fixed;
+        }
+        #main_content{
+            border-style: solid;
+            border-color: rgb(255, 0, 0);
+            height: 900px;
+            padding-left: 30px;
+        }
+        #advertisement{
+            border-style: solid;
+            border-color: rgb(21, 0, 255);
+            height: 300px;
+        }
+        #table{
+            border-style: solid;
+            border-color: rgb(255, 0, 230);
+            height: 600px;
+            padding: 1px;
+            background-image: url(../img/浅色.jpg);
+            background-size: cover;
+        }
+        a:link,a:visited{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+    </style>
+    <script>
+        var a= prompt("是否登录");
+        if(a=='是'){
+            window.location.href="login.html";
+        }
+        else{
+                
+            }
+    </script>
+</head>
+<body>
+    <div id="Head">
+        <div id="header_top">
+            <div id="header_top_left">
+                <div id="one"><span></span>
+                    <a href="#">3318794460</a>
+                </div>
+                <div id="two"><span></span>
+                    <a href="#">04622616161</a>
+                </div>
+            </div>
+            <div id="header_top_right">
+                <div id="three"><span></span>
+                    <a href="#">Login</a>
+                </div>
+                <script>
+                    var Login=document.getElementById("three");
+                    Login.onclick=function(){
+                        window.location.href="login.html";
+                    }
+                </script>
+                <div id="four"><span></span>
+                    <a href="#">Create an Account</a>
+                </div>
+            </div>					
+        </div>
+
+    <div class="container"><a name="top"></a>
+        <div class="tabs">
+            <input type="radio" id="radio-1" name="tabs" checked />
+            <label class="tab" for="radio-1" >首页</label>
+            <input type="radio" id="radio-2" name="tabs" />
+            <label class="tab" for="radio-2"><a href="#2" name="4">正文</a></label>
+            <input type="radio" id="radio-3" name="tabs" />
+            <label class="tab" for="radio-3"><a href="#3">留言板</a></label>
+			<input type="radio" id="radio-4" name="tabs" />
+			<label class="tab" for="radio-4" id="deng">登陆</label>
+            <input type="radio" id="radio-5" name="tabs" />
+			<label class="tab" for="radio-5" id="battle">重要战役</label>
+            <span class="glider"></span>
+        </div>
+    </div>
+    <script>
+    var Login=document.getElementById("battle");
+        Login.onclick=function(){
+            window.location.href="重要战役.html";
+        }
+    var Login=document.getElementById("deng");
+        Login.onclick=function(){
+            window.location.href="注册表.html";
+        }
+    </script>
+    <div id="blank"></div>
+    <div id="title">
+        <h1>清烨</h1>
+    </div>
+    <div id="main_content">
+        <h1>斗争从未结束：</h1>
+        <div class="overall">
+            <div class="content">
+                <ul>
+                    <li><img src="../img/1.jpg" alt=""></li>
+                    <li><img src="../img/2.webp" alt=""></li>
+                    <li><img src="../img/3.jpg" alt=""></li>
+                </ul>
+                <ol>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            </div>     
+            
+             
+        </div>
+        <script>
+            window.onload = function()
+            {
+            var content = this.document.getElementsByClassName("content")[0];
+            var li = content.getElementsByTagName("li");
+            function fun(i, j){        
+                li[i].style.opacity=1;
+                li[j].style.opacity=0;
+                li[i + 3].style.backgroundColor = "#ffffff";//将图标改为白色
+                li[j + 3].style.backgroundColor = "#00000000";// 把图标改成透明
+            }//小图标的轮换显示
+            fun(0, 1);//初始化默认情况下轮播图为第一张
+            var i = 0;
+            function auto(){
+                i ++;
+                if(i >= 3){
+                    i = 0;
+                    fun(0, 2);
+                }
+                else{
+                    fun(i, i - 1);
+                } 
+            }//轮播循环函数
+            timer = this.setInterval(auto, 2000);
+            content.onmouseover = function () { 
+                clearInterval(timer);
+            }//清除定时
+            content.onmouseout = function () { 
+                timer = setInterval(auto, 2000); 
+            }//调用定时
+            var j = 0;
+            for(; j < 3; j++)
+            {        
+                li[j + 3].index = j;
+                li[j + 3].onclick = function()
+                {
+                    fun(this.index, i)
+                    i = this.index;
+                }
+            }//点击小图标也可以转换图片
+        }
+        </script>
+        <!-- 轮播器 -->
+        
+        <p class="propose"><a name="2"></a>
+            <span>毛泽东:</span>
+            <br>
+            <img src="../img/quotes.png"/>
+            我们的同志在困难的时候，要看到成绩，要看到光明，要提高我们的勇气。中国人民正在受难，我们有责任解救他们，我们要努力奋斗。要奋斗就会有牺牲，死人的事是经常发生的。但是我们想到人民的利益，想到大多数人民的痛苦，我们为人民而死，就是死得其所。”其目的是号召大家学习张思德同志完全、彻底地为人民服务的精神。
+        </p>
+        <p class="propose">
+            <span>鲁迅:</span>
+            <br>
+            <img src="../img/quotes.png"/>
+            勇者愤怒，抽刃向更强者；怯者愤怒，却抽刃向更弱者。不可救药的民族中，一定有许英雄，专向孩子们瞪眼。这些孱头们！孙子们在瞪眼中长大了，又向别的孩子们瞪眼，并且想：他们一生都过在愤怒中。
+        </p>
+        <p class="propose">
+            <span>刘伯承:</span>
+            <br>
+            <img src="../img/quotes.png"/>
+            战争的胜负，决定于主力之保存或丧失。存人失地，地仍可得；存地失人，必将人地皆失。八年抗战，拯家国危亡，旌旗遍地红，柱砥中流歼日寇;万剑指天，率军民奋越，血肉筑城起，功开胜局写华章。
+        </p>
+        <p class="propose" id="main">
+            <br>
+            抗日战争，简称抗战，指20世纪中期第二次世界大战中，中国抵抗日本侵略的一场民族性的全面战争。国际上称作第二次中日战争（Second Sino-Japanese War）、 日本侵华战争（Japanese War of Aggression against China）。抗战时间从1931年9月18日九·一八事变开始算起，至1945年9月2日结束。 
+1931年9月18日，日军进攻沈阳，九·一八事变爆发，由于当局的不抵抗 ，致使日本侵略军迅速占领中国东北。1932年1月28日，日军进攻上海，一·二八事变爆发，中日军队第一次全面对抗和较量 。1937年7月7日，日军在北平附近挑起七七事变，抗日战争全面爆发。1941年12月7日，日本发动太平洋战争后，12月9日，重庆国民政府正式对日宣战。1945年8月15日，日本向反法西斯同盟国无条件投降。 
+中国战场是二战的主战场之一。中国人民的抗日战争是二战的重要组成部分。中国人民抗日战争，是中华民族历史上最伟大的卫国战争，是中国人民反抗日本帝国主义侵略的正义战争，是世界反法西斯战争的重要组成部分，也是中国近代以来抗击外敌入侵第一次取得完全胜利的民族解放战争。
+        </p>
+        <p class="propose" id="main">
+            <span>解放战争的意义：</span>
+            <br>
+            中国人民革命的胜利，不单是中国从古未有的大胜利，也是具有世界意义的大胜利，是继俄国十月社会主义革命和世界反法西斯战争胜利之后世界历史中最重大的事件，对国际局势和世界人民革命斗争的发展具有伟大而深远的影响 。它在一个人口占全人类近四分之一的大国里，冲破帝国主义的东方战线，极大地改变了世界的政治格局，壮大了世界和平、民主和社会主义的力量，鼓舞了世界被压迫民族和被压迫人民争取解放的斗争，从而受到世界人民的欢迎和支持。 
+中国战场是二战的主战场之一。中国人民的抗日战争是二战的重要组成部分。中国人民抗日战争，是中华民族历史上最伟大的卫国战争，是中国人民反抗日本帝国主义侵略的正义战争，是世界反法西斯战争的重要组成部分，也是中国近代以来抗击外敌入侵第一次取得完全胜利的民族解放战争。
+        </p>
+
+        <div class="photo_frame" >
+            <div class="border"id="1">
+                <div class="frame">
+                    <div class="image" style="background-image: url(../img/4.jpg)"></div>
+                </div>
+             </div>
+             <div class="border" id="p2">
+                <div class="frame">
+                    <div class="image" style="background-image: url(../img/5.jpg)"></div>
+                </div>
+            </div> 
+        </div>
+            <!-- 相框 -->
+    </div>
+
+    
+    <div id="advertisement">
+        <div id="content_bottem">
+            <div id="big_border">
+                <div id="small_border_p">
+                    <span>COME TOGEHTER</span>
+                    <p>The world is still young,the people are paramount</p>
+                    <p>long live the people</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- advertisement -->
+
+<div id="table"> 
+    <div class="example1">        
+        <div class="yan"><a name="3">Message wall</a></div>
+            <div id="outside">
+                <h3>全部留言</h3>
+                <div id="comment"></div>
+                <h4>发表留言</h4>
+                <div id="addComment">
+                  昵称：<input type="text" id="name" />
+                  <br /><br />
+                  内容：<textarea id="comContent"></textarea>
+                  <button id='tjpl'>发表留言</button>
+                </div>
+		    </div>
+    </div>
+        <!-- 留言板 -->
+            <script>
+                var comment = document.querySelector('#comment');
+                var ips = document.querySelector('#name');
+                var textarea = document.querySelector('textarea');
+                var tjpl = document.getElementById('tjpl')
+                tjpl.onclick = function () {
+                  if (ips.value == '' || textarea.value == '') {
+                    alert("输入不能为空！");
+                    return;
+                  }
+                  var divs = document.createElement('div');
+                  divs.className = 'comment1';
+                  divs.innerHTML = '网友昵称:';
+                  comment.appendChild(divs);
+                  var spans = document.createElement('span');
+                  spans.innerHTML = ips.value;
+                  divs.appendChild(spans);
+                  var time = document.createElement('time');
+                  time.innerHTML = new Date().toLocaleString();
+                  divs.appendChild(time);
+                  var ps = document.createElement('p');
+                  ps.innerHTML = textarea.value;
+                  divs.appendChild(ps);
+                  var del = document.createElement('button');
+                  del.className = 'del';
+                  del.innerHTML = '删除';
+                  divs.appendChild(del);
+                 
+                    del.onclick = function () {
+                      comment.removeChild(this.parentNode);
+                    }
+                  
+                   ips.value = '' ;
+                   textarea.value = '';
+                }
+              </script>
+   
+        <div class="app">
+			<div class="niudunbai59">
+			  <div class="niudunbai-dot-59"></div>
+			  <div class="niudunbai-dot-59"></div>
+			  <div class="niudunbai-dot-59"></div>
+			  <div class="niudunbai-dot-59"></div>
+			</div>
+        </div>
+        <div class="top_back">
+            <button class="back"><a href="#4">Back_top</a></button>
+        </div>
+</div>
+</body>
+</html>

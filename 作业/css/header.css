@@ -1,0 +1,148 @@
+#header_top {height: 50px;}
+			#header_top_left{
+				width: 400px;
+				float: left;
+				margin-left: 230px;
+			}
+			#header_top_right{
+				width: 300px;
+				float: left;
+				margin-left: 355px;
+			}
+			#one,#two,#three,#four{
+				width: 200px;
+				float: left;
+			}
+			#three{width: 100px;}
+			#one a,#two a,#three a,#four a {
+				color: black;
+				text-decoration: none;
+				display: inline-block;
+				text-align: center;
+				line-height: 50px;
+			}
+			
+			#one span,#two span,#three span,#four span{
+				display: inline-block;
+				width: 25px;
+				height: 10px;
+				padding: 5px;
+				background-origin: content-box;
+			}
+			
+			#one span{background-position: -103px -10px;}
+			#two span{background-position: -129px -10px;}
+			#three span{width: 22px;background-position: -59px -10px;}
+			#four span{width: 21px;background-position: -82px -10px;}
+            #one span,#two span,#three span,#four span{background-image: url(../img/img-sprite.png);}
+/* 页头 */
+
+:root {
+	--primary-color: #185ee0;
+	--secondary-color: #e6eef9;
+}
+
+.container {
+	position: relative;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    background-image: url(../img/container.png);
+    font-family: "Inter", sans-serif;
+    height: 90px;
+    box-shadow:  inset 5px 5px 10px #BABECC, inset -5px -5px 10px #FFF;
+}
+/* 容器 */
+
+.tabs {
+	display: flex;
+	position: relative;
+	background-color: hsla(0, 0%, 100%, 0.7);
+	box-shadow: 0 0 1px 0 rgba(#185ee0, 0.75), 0 6px 12px 0 rgba(#185ee0, 0.15);
+	padding: 0.75rem;
+	border-radius: 99px; 
+	* {
+		z-index: 2;
+	}
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+.tab {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 54px;
+	width: 200px;
+	font-size: 1.25rem;
+	font-weight: 500;
+	border-radius: 99px; 
+	cursor: pointer;
+	transition: color 0.15s ease-in;
+}
+
+
+input[type="radio"] {
+	&:checked {
+		& + label {
+			color: var(--primary-color);
+			}
+		}
+	}
+
+input[id="radio-1"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(0);
+		}
+	}
+}
+/* 滑翔板移动,没有好方法只能一个一个写 */
+input[id="radio-2"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(100%);
+		}
+	}
+}
+
+input[id="radio-3"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(200%);
+		}
+	}
+}
+input[id="radio-4"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(300%);
+		}
+	}
+}
+input[id="radio-5"] {
+	&:checked {
+		& ~ .glider {
+			transform: translateX(400%);
+		}
+	}
+}
+/* 滑翔板 */
+
+.glider {
+	position: absolute;
+	display: flex;
+	height: 54px;
+	width: 200px;
+	background-color: var(--secondary-color);
+	z-index: 1;
+	border-radius: 99px; 
+	transition: 0.25s ease-out;
+}
+/* 导航栏 */

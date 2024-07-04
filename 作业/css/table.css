@@ -1,0 +1,226 @@
+.example1{
+  width: 500px;
+  float: left;
+  
+}
+.yan{
+  width: 1000px;
+  position: relative;
+  font-family: 'Lucida Sans',  sans-serif;
+  font-size: 25px;
+  float: left;
+  margin-left: 5px;
+  margin-bottom: 3px;
+  border-bottom: black solid;
+}
+#outside {
+    width: 1000px; 
+    margin: 0 auto;
+    /* border: 1px solid black; */
+    overflow: hidden;
+    padding-bottom: 15px;
+    float: left;
+    border: #2D46A3 1px solid;
+    border-radius: 10px;
+    
+  } 
+  #outside h3 {
+    width: 95%;
+    margin: 15px auto;
+    padding-bottom: 10px;
+    border-bottom: 2px solid red;
+    font-family: "宋体", sans-serif;
+    color: red;
+    font-weight: 900;
+    font-size: 25px;
+  }
+
+  #outside .comment1 { 
+    width: 95%;
+    margin: 10px auto;
+    color: #BBBBBB;
+    font-size: 12px;
+    border-bottom: 1px dashed red;
+    font-family: "宋体", sans-serif;
+  }
+
+  #outside .comment1 time {
+    float: right;
+    color: black;
+  }
+
+  #outside .comment1 span {
+    color: #424b3a;
+    margin-left: 5px;
+    font-weight: 12px;
+  }
+
+  #outside .comment1 p {
+    font-size: 16px;
+    color: black;
+  }
+
+  #outside h4 {
+    width: 95%;
+    margin: 15px auto;
+    color: #404E73;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "宋体", sans-serif;
+  }
+
+  #outside #addComment {
+    width: 95%;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #BBBBBB;
+  }
+
+  #outside #name {
+    width: 200px;
+    height: 25px;
+    border: 1px solid #D9E2EF;
+  }
+
+  #outside #comContent {
+    width: 800px;
+    height: 200px;
+    resize: none;
+    border: 1px solid #D9E2EF;
+    vertical-align: text-top;
+  }
+
+  #addComment button {
+    width: 100px;
+    height: 30px;
+    background-color: #2D46A3;
+    color: white;
+    border: hidden;
+    float: right;
+    margin: 15px 100px;
+  }
+  .del {
+    width: 50px;
+    height: 30px;
+    background-color: #2D46A3;
+    color: white;
+    border: hidden; 
+  }
+
+/* 牛顿摆 */
+  .app{
+    float:right;
+    margin-right:70px;
+;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.niudunbai59{
+    width: 80px;
+    height: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.niudunbai-dot-59{
+    width: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transform-origin: center top;
+}
+.niudunbai-dot-59:before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border-radius: 50%;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #ff0000 100%);
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.2);
+}
+.niudunbai-dot-59:after{
+    content: '';
+    width: 2px;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #ff6a00 100%);
+}
+.niudunbai-dot-59:first-child{
+    animation: eff59 1.618s infinite;
+}
+.niudunbai-dot-59:last-child{
+    animation: eff592 1.618s infinite;
+}
+@keyframes eff59{
+	0% {
+	transform: rotate(0deg);
+	animation-timing-function: ease-out;
+	}
+
+	25% {
+	transform: rotate(70deg);
+	animation-timing-function: ease-in;
+	}
+
+	50% {
+	transform: rotate(0deg);
+	animation-timing-function: linear;
+	}
+}
+@keyframes eff592{
+	0% {
+	transform: rotate(0deg);
+	animation-timing-function: linear;
+	}
+
+	50% {
+	transform: rotate(0deg);
+	animation-timing-function: ease-out;
+	}
+
+	75% {
+	transform: rotate(-70deg);
+	animation-timing-function: ease-in;
+	}
+}
+
+/* 返回按钮 */
+.top_back{
+  position: relative;
+  margin-top: 540px;
+
+  margin-left: 1400px;
+  
+}
+.back {
+  
+  
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #725AC1;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #725AC1;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #725AC1;
+}
+
+button:hover {
+  color: white;
+  box-shadow: inset 0 -100px 0 0 #725AC1;
+}
+
+button:active {
+  transform: scale(0.9);
+}
