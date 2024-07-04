@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>录屏</title>
+</head>
+<style>
+    body{
+        text-align: center;
+        background-color: aliceblue;
+    }
+    button{
+        background-color: #03a9f4;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        margin-top: 100px;
+    }
+</style>
+
+<body>
+    <button id="button">开始录频</button>
+    <p id="warp"></p>
+</body>
+
+<script>
+    const button = document.getElementById("button");
+    button.addEventListener("click", async () => {
+        const stream = await navigator.mediaDevices.getDisplayMedia();
+        const recoder = new MediaRecorder(stream);
+        recoder.start();
+
+        const [video] = stream.getVideoTracks();
+        video.addEventListener("ended", () => {
+            recoder.stop();
+        });
+
+        recoder.addEventListener("dataavailable", (evt) => {
+            const video = document.createElement("video");
+            video.src = URL.createObjectURL(evt.data);
+            video.autoplay = true
+            video.type="video/webm" 
+            video.controls = true
+            video.width = 500
+            document.getElementById('warp').appendChild(video)
+        });
+    });
+</script>
+
+</html>
