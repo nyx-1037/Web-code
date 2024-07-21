@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>电子拍照</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            text-align: center;
+        }
+        #imgs {
+            text-align: left;
+        }
+        #imgs img {
+            margin: 5px;
+            cursor: pointer;
+            border: 1px dashed #fff;
+
+        }
+        #imgs img:hover {
+            /* box-shadow: 0 0 5px blue; */
+            border: 1px dashed blue;
+        }
+        .bigImg {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            margin: 0 !important;
+            display: none;
+        }
+</style>
+</head>
+<body ondblclick="handleBody()">
+    <h1>电子拍照</h1>
+<input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia()" />
+<input type="button" title="关闭摄像头" value="关闭摄像头" onclick="closeMedia()" />
+<p>
+    <video id="video" width="300px" height="300px" autoplay="autoplay"></video>
+</p>
+<p id="imgs"></p>
+<img src="" alt="" class="bigImg">
+<script>
+    //获得video摄像头区域
+    let video = document.getElementById("video");
+    let big = document.querySelector('.bigImg')
+    let stream = null
+    let timer = null
+    let time = 60
+    function getMedia() {
+        let constraints = {
+            video: {width: 500, height: 500},
+            audio: true
+        };
+        /*
+        这里介绍新的方法:H5新媒体接口 navigator.mediaDevices.getUserMedia()
+        这个方法会提示用户是否允许媒体输入,(媒体输入主要包括相机,视频采集设备,屏幕共享服务,麦克风,A/D转换器等)
+        返回的是一个Promise对象。
+        如果用户同意使用权限,则会将 MediaStream对象作为resolve()的参数传给then()
+        如果用户拒绝使用权限,或者请求的媒体资源不可用,则会将 PermissionDeniedError作为reject()的参数传给catch()
+        */
+        let promise = navigator.mediaDevices.getUserMedia(constraints);
+        promise.then(function (MediaStream) {
+            stream = MediaStream
+            video.srcObject = MediaStream;
+            video.play();
+            if(timer) clearInterval(timer)
+            timer = setInterval(()=>{
+                time --
+                setTimeout(()=>{
+                    clearInterval(timer)
+                    timer = null
+                },1000 * time)
+                takePhoto()
+            },1000)
+        }).catch(function (PermissionDeniedError) {
+            console.log(PermissionDeniedError);
+        })
+    }
+
+    function closeMedia() {
+        stream.getTracks().forEach(track => {
+            track.stop()
+        })
+        video.srcObject = null
+        document.getElementById('imgs').innerHTML = ''
+        clearInterval(timer)
+        timer = null
+        time = 60
+    }
+
+    function takePhoto() {
+        //获得Canvas对象
+        let canvas = document.createElement("canvas");
+        canvas.width = video.width
+        canvas.height = video.height
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const imgURL = canvas.toDataURL({format: "image/png", quality:1, width:12000, height:4000});
+        // const imgURL = canvas.toDataURL({format: "image/png", quality:1});
+        let img = new Image()
+        img.src = imgURL
+        img.width = video.width/2
+        img.id = Date.now()
+        img.setAttribute('onclick', `handleImg(${img.id})`)
+        document.getElementById('imgs').appendChild(img)
+    }
+
+    //点击图片放大
+    function handleImg(e) {
+        big.style.display = 'block'
+        big.src = document.getElementById(`${e}`).getAttribute('src')
+    }
+
+    //左键双击图片恢复尺寸
+    function handleBody(){
+        big.src = ''
+        big.style.display = 'none'
+    }
+</script>
+</body>
+</html>

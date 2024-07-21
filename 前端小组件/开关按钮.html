@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>开关按钮</title>
+    <style>
+        body {
+    height: 100vh; /* 设置 body 元素的高度为视窗的高度 */
+    display: flex; /* 将 body 元素设置为弹性容器 */
+    justify-content: center; /* 在主轴上居中对齐 */
+    align-items: center; /* 在交叉轴上居中对齐 */
+    background-color: #e8e8e8; /* body 元素的背景颜色 */
+}
+
+.checkbox {
+    display: none; /* 隐藏复选框 */
+}
+
+.slider {
+    width: 60px; /* 元素的宽度 */
+    height: 30px; /* 元素的高度 */
+    background-color: lightgray; /* 元素的背景颜色 */
+    border-radius: 20px; /* 元素的边框圆角 */
+    overflow: hidden; /* 隐藏超出元素框的内容 */
+    display: flex; /* 设置为弹性容器 */
+    align-items: center; /* 在交叉轴上居中对齐 */
+    border: 4px solid transparent; /* 元素的边框样式 */
+    transition: .3s; /* 过渡效果的持续时间 */
+    box-shadow: 0 0 10px 0 rgb(0, 0, 0, 0.25) inset; /* 元素的盒子阴影 */
+    cursor: pointer; /* 鼠标悬停时的光标样式 */
+}
+
+.slider::before {
+    content: ''; /* 伪元素的内容为空 */
+    display: block; /* 将伪元素设置为块级元素 */
+    width: 100%; /* 元素的宽度 */
+    height: 100%; /* 元素的高度 */
+    background-color: #fff; /* 元素的背景颜色 */
+    transform: translateX(-30px); /* 元素的位移效果 */
+    border-radius: 20px; /* 元素的边框圆角 */
+    transition: .3s; /* 过渡效果的持续时间 */
+    box-shadow: 0 0 10px 3px rgb(0, 0, 0, 0.25); /* 元素的盒子阴影 */
+}
+
+.checkbox:checked~.slider::before {
+    transform: translateX(30px); /* 切换复选框选中状态时的位移效果 */
+    box-shadow: 0 0 10px 3px rgb(0, 0, 0, 0.25); /* 切换复选框选中状态时的盒子阴影 */
+}
+
+.checkbox:checked~.slider {
+    background-color: #2196F3; /* 切换复选框选中状态时的背景颜色 */
+}
+
+.checkbox:active~.slider::before {
+    transform: translate(0); /* 切换复选框激活状态时的位移效果 */
+}
+    </style>
+</head>
+<body>
+    <label class="switch">
+        <input type="checkbox" class="checkbox">
+        <div class="slider"></div>
+      </label>
+</body>
+</html>

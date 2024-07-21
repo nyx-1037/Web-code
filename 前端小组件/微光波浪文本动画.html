@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微光波浪文本动画</title>
+    <style>
+        /* 设置页面基本样式 */
+body,
+html {
+    height: 100%; /* 设置页面高度为100% */
+    margin: 0; /* 设置页面外边距为0 */
+    display: flex; /* 使用flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    background-color: #000; /* 设置背景颜色为黑色 */
+    -webkit-text-size-adjust: 100%; /* WebKit浏览器文本大小调整为100% */
+    -moz-text-size-adjust: 100%; /* Firefox浏览器文本大小调整为100% */
+    text-size-adjust: 100%; /* 文本大小调整为100% */
+    -webkit-font-smoothing: antialiased; /* WebKit浏览器字体平滑处理 */
+    text-rendering: optimizelegibility; /* 优化文本渲染 */
+    -webkit-text-size-adjust: none; /* 禁止WebKit浏览器文本大小调整 */
+    -moz-text-size-adjust: none; /* 禁止Firefox浏览器文本大小调整 */
+    text-size-adjust: none; /* 禁止文本大小调整 */
+}
+
+/* 设置#shimmerWave元素样式 */
+#shimmerWave {
+    color: #46afc8; /* 设置文字颜色 */
+    font-size: 40px; /* 设置文字大小 */
+    font-family: "Open-Sans", sans-serif; /* 设置字体 */
+    font-weight: 600; /* 设置字体粗细 */
+    perspective: 80px; /* 设置透视效果 */
+    transform-style: preserve-3d; /* 保持3D变换效果 */
+}
+
+/* 设置#shimmerWave内span元素样式 */
+#shimmerWave span {
+    position: relative; /* 设置相对定位 */
+    transition: all 0.3s ease; /* 设置过渡效果 */
+    display: inline-block; /* 行内块元素显示 */
+    -webkit-animation: wave 2.4s ease infinite; /* 设置WebKit动画 */
+    animation: wave 2.4s ease infinite; /* 设置动画 */
+    letter-spacing: 0.01em; /* 设置字间距 */
+    transform-origin: 100% 50%; /* 设置变换原点 */
+    transform-style: preserve-3d; /* 保持3D变换效果 */
+}
+
+/* 为每个span元素设置不同的动画延迟时间 */
+#shimmerWave span:nth-child(1) {
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+/* 依此类推 */
+...
+
+/* 定义WebKit动画效果wave */
+@-webkit-keyframes wave {
+    /* 不同关键帧的样式变化 */
+}
+
+/* 定义通用动画效果wave */
+@keyframes wave {
+    /* 不同关键帧的样式变化 */
+}
+    </style>
+</head>
+<body>
+    <div id="shimmerWave">Generating summary...</div>
+</body>
+</html>
+<script>
+    const target = document.getElementById('shimmerWave');
+function splitTextToSpans(targetElement) {
+  if (targetElement) {
+    const text = targetElement.textContent;
+    targetElement.innerHTML = '';
+    for (let character of text) {
+      const span = document.createElement('span');
+      if (character === ' ') {
+        span.innerHTML = '&nbsp;';
+      } else {
+        span.textContent = character;
+      }
+      targetElement.appendChild(span);
+    }
+  }
+}
+splitTextToSpans(target);
+</script>

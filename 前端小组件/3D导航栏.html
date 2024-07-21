@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D导航栏</title>
+    <style>
+        @font-face {
+    font-family: "iconfont";
+    /* Project id 4096975 */
+    src: url('https://at.alicdn.com/t/c/font_4096975_pswyqyk8tdo.woff2?t=1685517797434') format('woff2'),
+        url('https://at.alicdn.com/t/c/font_4096975_pswyqyk8tdo.woff?t=1685517797434') format('woff'),
+        url('https://at.alicdn.com/t/c/font_4096975_pswyqyk8tdo.ttf?t=1685517797434') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xinlangweibo:before {
+    content: "\e600";
+}
+
+.icon-shouji:before {
+    content: "\e601";
+}
+
+.icon-weixin:before {
+    content: "\e602";
+}
+
+.icon-jingdong:before {
+    content: "\e812";
+}
+
+.icon-taobao:before {
+    content: "\e755";
+}
+
+.icon-shoujitaobao:before {
+    content: "\e786";
+}
+
+.icon-alipay:before {
+    content: "\e618";
+}
+
+.icon-QQ:before {
+    content: "\e882";
+}
+
+.icon-douyin:before {
+    content: "\e8db";
+}
+
+.icon-pinduoduo:before {
+    content: "\e8df";
+}
+
+/* 1.去除默认样式 设置底色 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e8e8e8;
+}
+
+/* 2.准备导航的基本样式 */
+ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    list-style: none;
+}
+
+/* 3.1 准备导航里面图标的基本样式 */
+ul li {
+    position: relative;
+    margin: 0 2px;
+    width: 40px;
+    height: 40px;
+}
+
+ul li span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 40px;
+    font-size: 16px;
+    background: #fff;
+    color: #262626;
+    transform-origin: top;
+    text-align: center;
+    cursor: pointer;
+}
+
+ul li span:nth-child(2) {
+    background: #3b5999;
+    color: #fff;
+    transform-origin: bottom;
+    transform: rotateX(90deg) translateY(50%);
+}
+
+
+/* 3.1.1 鼠标悬停 旋转 上移 */
+ul li span {
+    transition: all 0.5s;
+}
+
+ul li span:nth-child(1) {
+    transform-origin: top;
+}
+
+ul li:hover span:nth-child(1) {
+    transform: rotateX(90deg) translateY(-50%);
+}
+
+ul li:hover span:nth-child(2) {
+    transform: rotateX(0deg) translateY(0);
+}
+
+ul li:hover {
+    transform: translateY(-10px);
+}
+
+/* 3.2 导航下面图标的底色 */
+ul li:nth-child(1) span:nth-child(2) {
+    background: #3b5999;
+}
+
+ul li:nth-child(2) span:nth-child(2) {
+    background: #05e07a;
+}
+
+ul li:nth-child(3) span:nth-child(2) {
+    background: #dd4b39;
+}
+
+ul li:nth-child(4) span:nth-child(2) {
+    background: #b50088;
+}
+
+ul li:nth-child(5) span:nth-child(2) {
+    background: #d9e440;
+}
+
+*/
+
+/* 4. 添加底部的阴影效果 */
+ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 40px;
+    height: 8px;
+    background: #000;
+    border-radius: 50%;
+    transition: .5s;
+    opacity: 0;
+    filter: blur(2px);
+    transform: scale(0.8);
+
+}
+
+ul li:hover::before {
+    transition-delay: .5s;
+    opacity: .2;
+    transform: scale(1);
+}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <span class="iconfont icon-QQ"></span>
+            <span class="iconfont icon-QQ"></span>
+        </li>
+        <li>
+            <span class="iconfont icon-weixin"></span>
+            <span class="iconfont icon-weixin"></span>
+        </li>
+        <li>
+            <span class="iconfont icon-douyin"></span>
+            <span class="iconfont icon-douyin"></span>
+        </li>
+        <li>
+            <span class="iconfont icon-xinlangweibo"></span>
+            <span class="iconfont icon-xinlangweibo"></span>
+        </li>
+        <li>
+            <span class="iconfont icon-shouji"></span>
+            <span class="iconfont icon-shouji"></span>
+        </li>
+    </ul>
+</body>
+</html>

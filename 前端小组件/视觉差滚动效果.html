@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling</title>
+    <link rel="stylesheet" href="./styles/index.css">
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0a2a43;
+  min-height: 1500px;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, #0a2a43, transparent);
+  width: 100%;
+  height: 100px;
+  z-index: 99;
+}
+
+section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a2a43;
+  mix-blend-mode: color;
+  z-index: 99;
+}
+
+section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+#text {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 10em;
+}
+
+#road {
+  z-index: 2;
+}
+
+/* fix bug: 当moon的宽高比小于1.3时，会有部分被裁剪。这里取1.4为了月亮与左边始终保存一定空间 */
+@media (max-aspect-ratio: 7/5) {
+  #moon {
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 1200px) {
+  #text {
+    font-size: 4em;
+  }
+}
+
+@media (max-width: 750px) {
+  #text {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 640px) {
+  #text {
+    display: none;
+  }
+}
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <img src="./bg.jpg" alt="bg" id="bg">
+      <img src="./moon.png" alt="moon" id="moon">
+      <img src="./mountain.png" alt="mountain" id="mountain">
+      <img src="./road.png" alt="road" id="road">
+      <h2 id="text">Moon Light</h2>
+    </section>
+  </body>
+
+  <script>
+    const moon = document.getElementById('moon')
+const mountain = document.getElementById('mountain')
+const road = document.getElementById('road')
+const text = document.getElementById('text')
+
+
+window.addEventListener('scroll', () => {
+  const value = window.scrollY
+  bg.style.top = value * 0.5 + 'px'
+  moon.style.left = -value * 0.5 + 'px'
+  mountain.style.top = -value * 0.15 + 'px';
+  road.style.top = value * 0.15 + 'px';
+  text.style.top = value * 1 + 'px';
+})
+  </script>
+
+</html>

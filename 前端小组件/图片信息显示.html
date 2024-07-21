@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>获取图片信息</title>
+    <style>
+        body {
+            padding: 20px;
+            background-color: aliceblue;
+        }
+        .warp {
+            display: flex;
+        }
+        img {
+            box-shadow: 0 0 5px blue;
+            border-radius: 10px;
+        }
+        #info {
+            margin: 0 50px;
+        }
+</style>
+</head>
+
+<body>
+    <h1>获取图片信息</h1>
+        <input type="file" accept="image/jpg,image/jpeg,image/png" id="fileInput" />
+    <div class="warp">
+        <p id="imgWarp"></p>
+        <p id="info"></p>
+    </div>
+
+    <script>
+        const input = document.getElementById("fileInput")
+        input.addEventListener("change", handleFileChange, false);
+
+        function handleFileChange(e) {
+            let image = document.querySelector('img')
+            if (image) {
+                image.parentNode.removeChild(image)
+            }
+            let file = e.target.files[0]
+            let reader = new FileReader()
+            reader.readAsDataURL(file)
+            reader.onload = () => {
+                if (reader.readyState == 2) {
+
+                    let img = new Image();
+                    img.src = reader.result;
+                    img.width = 500
+                    img.onload = function (a) {
+                        document.getElementById('info').innerHTML = '文件名：' + file.name + '<br/>宽度: ' + this.width + ' px' + '<br/>高度：' + this.height + ' px' + '<br/>分辨率：' + this.width * this.height + ' px' + '<br/>大小：' + file.size + ' B' + '<br/>类型：' + file.type
+
+                    };
+                    document.getElementById('imgWarp').appendChild(img)
+
+                }
+
+            }
+        }
+</script>
+</body>
+
+</html>

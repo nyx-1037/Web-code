@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #f5f7fa, #c3cfe2);
+}
+.gallery{
+    position: relative;
+    width: 760px;
+    height: 305px;
+}
+.gallery .item{
+    position: absolute;
+    width: 175px;
+    height: 150px;
+    overflow: hidden;
+    /* 添加过渡动画 */
+    transition: transform 0.9s, width 0.9s, height 0.9s;
+}
+.gallery .item img{
+    width: 100%;
+    height: 100%;
+}
+.gallery div[data-pos="0"]{
+    width: 400px;
+    height: inherit;
+    z-index: 9;
+}
+.gallery div[data-pos="0"]{
+    transform: translate(0,0);
+}
+.gallery div[data-pos="1"]{
+    transform: translate(405px,0);
+}
+.gallery div[data-pos="2"]{
+    transform: translate(585px,0);
+}
+.gallery div[data-pos="3"]{
+    transform: translate(405px,155px);
+}
+.gallery div[data-pos="4"]{
+    transform: translate(585px,155px);
+}
+.gallery:hover :not(div[data-pos="0"], img){
+    cursor: pointer;
+}
+    </style>
+</head>
+<body>
+    
+<main class="gallery">
+    <div class="item" data-pos="0">
+        <img src="https://picsum.photos/400/300?random=0" alt="">
+    </div>
+    <div class="item" data-pos="1">
+        <img src="https://picsum.photos/400/300?random=1" alt="">
+    </div>
+    <div class="item" data-pos="2">
+        <img src="https://picsum.photos/400/300?random=2" alt="">
+    </div>
+    <div class="item" data-pos="3">
+        <img src="https://picsum.photos/400/300?random=3" alt="">
+    </div>
+    <div class="item" data-pos="4">
+        <img src="https://picsum.photos/400/300?random=4" alt="">
+    </div>
+    
+</main>
+    
+</body>
+<script>
+    
+function init(e){
+    // 检查事件目标是否在类名为“item”的元素范围内
+    if(!e.target.closest(".item")) return;
+    // 选择文档中data-pos属性为0的第一个div元素
+    let big=document.querySelector('div[data-pos="0"]');
+    // 获取事件源的父元素
+    let target=e.target.parentElement;
+    // 交换两个元素的位置，通过交换target和big两个DOM元素的“dataset.pos”属性值，来实现位置的交换
+    [target.dataset.pos, big.dataset.pos]=[
+        big.dataset.pos,
+        target.dataset.pos
+    ]
+}
+
+// 为窗口添加点击事件监听器
+window.addEventListener("click",init,false);
+</script>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡导航栏</title>
+    <link rel="stylesheet" href="../fonts/css/font-awesome.css">
+    <link rel="stylesheet" href="./11-选项卡导航栏.css">
+    <style>
+        /* 清除所有元素的默认margin和padding */  
+* {  
+    margin: 0; /* 清除所有元素的外边距 */  
+    padding: 0; /* 清除所有元素的内边距 */  
+}  
+  
+/* 设置body的高度为视口高度，并使用flex布局来居中内容 */  
+body {  
+    height: 100vh; /* 设置body的高度为视口高度 */  
+    display: flex; /* 使用flex布局 */  
+    justify-content: center; /* 水平居中子元素 */  
+    align-items: center; /* 垂直居中子元素 */  
+}  
+  
+/* 为.container元素添加边框 */  
+.container {  
+    border: 1px solid #38ada9; /* 边框颜色为#38ada9 */  
+}  
+  
+/* 创建一个flex导航条 */  
+.nav {  
+    display: flex; /* 使用flex布局 */  
+}  
+  
+/* 为导航条的每个项目（.item）设置样式 */  
+.nav .item {  
+    width: 140px; /* 项目宽度为140px */  
+    height: 108px; /* 项目高度为108px */  
+    border-right: 1px solid #38ada9; /* 右侧边框颜色为#38ada9 */  
+    border-bottom: 1px solid #38ada9; /* 下边框颜色为#38ada9 */  
+    display: flex; /* 使用flex布局 */  
+    justify-content: center; /* 水平居中内容 */  
+    align-items: center; /* 垂直居中内容 */  
+    cursor: pointer; /* 鼠标悬停时显示手形图标 */  
+    position: relative; /* 设置相对定位 */  
+    overflow: hidden; /* 隐藏超出项目容器的内容 */  
+}  
+  
+/* 移除导航条中最后一个项目的右侧边框 */  
+.nav .item:last-child {  
+    border-right: none; /* 移除右侧边框 */  
+}  
+  
+/* 为导航条项目添加圆形背景效果（通过::before伪元素） */  
+.nav .item::before {  
+    content: ""; /* 不显示内容 */  
+    width: 80px; /* 伪元素宽度为80px */  
+    height: 80px; /* 伪元素高度为80px */  
+    background-color: #38ada9; /* 伪元素背景颜色为#38ada9 */  
+    border-radius: 50%; /* 伪元素形状为圆形 */  
+    position: absolute; /* 绝对定位 */  
+    transition: 0.3s; /* 添加过渡效果，持续时间为0.3秒 */  
+}  
+  
+/* 为Font Awesome图标设置样式 */  
+.nav .fa {  
+    color: #fff; /* 图标颜色为白色 */  
+    position: relative; /* 设置相对定位 */  
+    font-size: 36px; /* 图标大小为36px */  
+}  
+  
+/* 当导航条项目处于激活状态时，改变其伪元素的尺寸 */  
+.nav .item.active::before {  
+    width: 150%; /* 伪元素宽度为原始宽度的150% */  
+    height: 150%; /* 伪元素高度为原始高度的150% */  
+}  
+  
+/* 设置内容区域的宽度和高度 */  
+.content {  
+    width: 100%; /* 宽度为父元素宽度的100% */  
+    height: 300px; /* 高度为300px */  
+    position: relative; /* 设置相对定位 */  
+}  
+  
+/* 设置section元素的样式 */  
+section {  
+    width: 100%; /* 宽度为父元素宽度的100% */  
+    height: 100%; /* 高度为父元素高度的100% */  
+    display: flex; /* 使用flex布局 */  
+    justify-content: center; /* 水平居中内容 */  
+    align-items: center; /* 垂直居中内容 */  
+    position: absolute; /* 绝对定位 */  
+    opacity: 0; /* 默认透明度为0，即不可见 */  
+    transition: opacity 0.4s; /* 过渡效果，当透明度变化时持续0.4秒 */  
+}  
+  
+/* 为section元素中的span元素设置样式 */  
+section span {  
+    font-size: 70px; /* 字体大小为70px */  
+    font-weight: bold; /* 字体加粗 */  
+    color: crimson; /* 字体颜色为猩红色 */  
+}  
+  
+/* 当section元素具有.active类时，将其设置为可见（透明度为1） */  
+section.active {  
+    opacity: 1; /* 设置透明度为1 */  
+}  
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="item active"><i class="fa fa-file-powerpoint-o"></i></div>
+            <div class="item"><i class="fa fa-file-photo-o"></i></div>
+            <div class="item"><i class="fa fa-file-zip-o"></i></div>
+            <div class="item"><i class="fa fa-file-sound-o"></i></div>
+            <div class="item"><i class="fa fa-file-movie-o"></i></div>
+        </div>
+        <div class="content">
+            <section class="active"><span>powerpoint</span></section>
+            <section><span>photo</span></section>
+            <section><span>zip</span></section>
+            <section><span>sound</span></section>
+            <section><span>movie</span></section>
+        </div>
+    </div>
+</body>
+<script>
+    // 使用querySelectorAll方法获取页面上所有class为'item'的元素，并存储在items数组中  
+const items = document.querySelectorAll('.item');  
+  
+  // 使用querySelectorAll方法获取页面上所有的<section>元素，并存储在sections数组中  
+  const sections = document.querySelectorAll('section');  
+    
+  // 定义一个函数removeActive，用于移除所有items和sections的'active'类  
+  function removeActive() {  
+      // 对items数组中的每个元素执行操作  
+      items.forEach(item => {  
+          // 从当前元素上移除'active'类  
+          item.classList.remove('active');  
+      });  
+      // 对sections数组中的每个元素执行操作  
+      sections.forEach(item => {  
+          // 从当前元素上移除'active'类  
+          item.classList.remove('active');  
+      });  
+  }  
+    
+  // 对items数组中的每个元素（item）及其索引（index）执行操作  
+  items.forEach((item, index) => {  
+      // 为当前item元素添加一个点击事件监听器  
+      item.addEventListener('click', function() {  
+          // 当item被点击时，首先移除所有items和sections的'active'类  
+          removeActive();  
+          // 然后给被点击的item元素添加'active'类  
+          item.classList.add('active');  
+          // 并给对应的sections数组中的元素（通过索引index）添加'active'类  
+          sections[index].classList.add('active');  
+      })  
+  })
+</script>
+</html>

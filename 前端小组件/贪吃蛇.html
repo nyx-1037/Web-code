@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>贪吃蛇</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: aliceblue;
+        }
+        .top {
+            height: 100px;
+        }
+        .title {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            border: none;
+            background-color: orange;
+            margin: 20px auto;
+            display: block;
+            color: #fff;
+            padding: 10px 20px;
+            outline: none;
+            cursor: pointer;
+        }
+        .map {
+            width: 100vw;
+            height: calc(100vh - 120px);
+            background-color: #b5b5ec;
+            margin: 0 auto;
+            position: relative;
+        }
+        #shadow {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            background: rgba(0,0,0,0.8);
+            text-align: center;
+            line-height: 100vh;
+            font-size: 50px;
+            color: red;
+            display: none;
+        }
+        #text {
+            animation: 2s infinite move;
+        }
+
+        @keyframes move {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+</style>
+</head>
+
+<body>
+    <div class="top">
+        <h2 class="title">贪吃蛇游戏</h2>
+        <button id="btn" class="btn" type="button">开始游戏</button>
+    </div>
+    
+    <div id="map" class="map"></div>
+    <div id="shadow" onclick="handleClose()">
+        <span id="text">GAME OVER</span>
+    </div>
+
+    <script>
+        var map = document.getElementById("map");
+
+        // 存放food的数组，用来删除food
+        var foodElements = [];
+
+        function Food() {
+            this.x = 0;
+            this.y = 0;
+            // Food的width、height和color属性并不需要修改，所以为了节省内存空间，采用原型对象的方式创建这三个属性
+            Food.prototype.width = 20;
+            Food.prototype.height = 20;
+            Food.prototype.color = "#fff";
+            // 动态原型模式创建对象。用来完成数据共享，节省内存空间
+            /* 
+              判断this.init的类型是不是function
+              如果不是function则证明是第一次创建对象，则把这个funcion添加到原型中
+              如果是function，则代表原型中已经有了这个方法，则不需要再添加该方法。
+            */
+            // 初始化food
+            if (typeof this.init != "function") {
+                Food.prototype.init = function () {
+                    // 先删除之前的food
+                    food.remove();
+                    // 创建元素
+                    var div = document.createElement("div");
+                    // 设置food的样式
+                    div.style.width = this.width + "px";
+                    div.style.height = this.height + "px";
+                    div.style.backgroundColor = this.color;
+                    // 设置为相对定位
+                    div.style.position = "absolute";
+                    this.x = parseInt(Math.random() * (map.offsetWidth / this.width));
+                    this.y = parseInt(Math.random() * (map.offsetHeight / this.height));
+                    // 设置食物出现的位置不是当前小蛇身体所在位置
+                    for (var i = 0; i < snake.body.length; i++) {
+                        while (this.x == snake.body[i].x && this.y == snake.body[i].y) {
+                            this.x = parseInt(Math.random() * (map.offsetWidth / this.width));
+                            this.y = parseInt(Math.random() * (map.offsetHeight / this.height));
+                            continue;
+                        }
+                    }
+                    div.style.left = this.x * this.width + "px";
+                    div.style.top = this.y * this.height + "px";
+
+                    // 将食物添加到map和foodElements数组中
+                    map.appendChild(div);
+                    foodElements.push(div);
+                };
+            }
+
+            // 删除food
+            if (typeof this.remove != "function") {
+                Food.prototype.remove = function () {
+                    for (var i = 0; i < foodElements.length; i++) {
+                        // 删除该元素
+                        map.removeChild(foodElements[i]);
+                        // 删除foodElements数组中的内容
+                        foodElements.splice(i, 1);
+                    }
+                };
+            }
+        };
+
+        // 存放snake的数组，用来删除snake
+        var snakeElements = [];
+
+        function Snake() {
+            this.direction = "right";
+            this.body = [{
+                    x: 3,
+                    y: 2,
+                    color: "red"
+                },
+                {
+                    x: 2,
+                    y: 2,
+                    color: "orange"
+                },
+                {
+                    x: 1,
+                    y: 2,
+                    color: "orange"
+                }
+            ];
+            // 使用原型对象的方式设置Snake的width和height
+            Snake.prototype.width = 20;
+            Snake.prototype.height = 20;
+
+      // 动态原型模式创建对象
+            // 初始化snake
+            if (!(this.init instanceof Function)) {  // 判断是否为function的另一种方式
+                Snake.prototype.init = function () {
+                    this.remove();
+                    for (var i = 0; i < this.body.length; i++) {
+                        // 设置snake的样式
+                        var obj = this.body[i];
+                        var div = document.createElement("div");
+                        map.appendChild(div);
+                        div.style.width = this.width + "px";
+                        div.style.height = this.height + "px";
+                        div.style.position = "absolute";
+                        div.style.backgroundColor = obj.color;
+                        div.style.left = obj.x * this.width + "px";
+                        div.style.top = obj.y * this.height + "px";
+
+                        // 设置头部为圆角，可省略
+                        while (i == 0) {
+                            let si = '5px'
+                            switch (this.direction) {
+                                case "right":
+                                    div.style.borderTopRightRadius = si;
+                                    div.style.borderBottomRightRadius = si;
+                                    break;
+                                case "left":
+                                    div.style.borderTopLeftRadius = si;
+                                    div.style.borderBottomLeftRadius = si;
+                                    break;
+                                case "top":
+                                    div.style.borderTopRightRadius = si;
+                                    div.style.borderTopLeftRadius = si;
+                                    break;
+                                case "bottom":
+                                    div.style.borderBottomRightRadius = si;
+                                    div.style.borderBottomLeftRadius = si;
+                                    break;
+                            }
+                            break;
+                        }
+
+                        // 将snake的每个节点添加到数组中，以便后期删除使用
+                        snakeElements.push(div);
+                    }
+                };
+            }
+
+            // 删除snake
+            if (!(this.remove instanceof Function)) {
+                Snake.prototype.remove = function () {
+                    for (var i = snakeElements.length - 1; i >= 0; i--) {
+                        // 在map中移除snake这个子节点
+                        map.removeChild(snakeElements[i]);
+                        // 删除snakeElements数组中的内容
+                        snakeElements.splice(i, 1);
+                    }
+                };
+            }
+
+            // 移动snake
+            if (!(this.move instanceof Function)) {
+                Snake.prototype.move = function () {
+                    // 改变小蛇的身体的坐标位置
+                    for (var i = this.body.length - 1; i > 0; i--) {
+                        this.body[i].x = this.body[i - 1].x;
+                        this.body[i].y = this.body[i - 1].y;
+                    }
+
+                    // 根据direction属性确定蛇头移动的方向并改变小蛇的头的坐标位置
+                    switch (this.direction) {
+                        case "right":
+                            this.body[0].x += 1;
+                            break;
+                        case "left":
+                            this.body[0].x -= 1;
+                            break;
+                        case "top":
+                            this.body[0].y -= 1;
+                            break;
+                        case "bottom":
+                            this.body[0].y += 1;
+                            break;
+                    }
+
+                    // 如何让蛇看起来像是在移动：
+                    // 在小蛇移动后，删除之前的蛇（删除方法在init()中调用了），然后重新显示蛇
+                    this.init();
+
+                    // 判断是否吃到食物，吃到则蛇身加一节，删除吃掉的食物，生成新的食物
+                    // 蛇头的x、y与食物的x、y均相等则为吃到食物
+                    if (this.body[0].x == food.x && this.body[0].y == food.y) {
+                        var last = this.body[this.body.length - 1];
+                        this.body.push({
+                            x: last.x,
+                            y: last.y,
+                            color: last.color
+                        });
+                        // 删除吃掉的食物，生成新的食物
+                        food.init();
+                    }
+
+                    // 判断是否撞墙，撞墙 即死
+                    var maxX = map.offsetWidth / this.width; // map中最大的x值
+                    var maxY = map.offsetHeight / this.height; // map中最大的y值
+                    var headX = this.body[0].x; // 蛇头所在位置的x值
+                    var headY = this.body[0].y; // 蛇头所在位置的y值
+                    if (headX < 0 || headX > maxX - 1 || headY < 0 || headY > maxY - 1) {
+                        // 清除定时器
+                        clearInterval(timeId);
+                        timeId = null;   // 通过timeId = null保证以后每次能正常启动定时器
+                        document.getElementById('shadow').style.display= "block";
+                        // alert("对不起，您撞墙了，游戏结束！");
+
+                        // 移除snake
+                        this.remove();
+                        // 还原Snake中direction和body的初始值，让蛇恢复原状
+                        this.direction = "right";
+                        this.body = [{
+                                x: 3,
+                                y: 2,
+                                color: "red"
+                            },
+                            {
+                                x: 2,
+                                y: 2,
+                                color: "orange"
+                            },
+                            {
+                                x: 1,
+                                y: 2,
+                                color: "orange"
+                            }
+                        ];
+                        // 重新显示snake
+                        this.init();
+                        // 结束游戏
+                        return false;
+                    }
+
+                    // 判断是否吃到自己，吃到自己 即死
+                    // 因为蛇长为5时才能吃到自己，所以i从4开始
+                    for (var i = 4; i < this.body.length; i++) {
+                        // 如果头部的x、y与身体某一段的x、y相等则为吃到自己
+                        if (this.body[0].x == this.body[i].x && this.body[0].y == this.body[i].y) {
+                            // 清除定时器
+                            clearInterval(timeId);
+                            timeId = null;
+                            document.getElementById('shadow').style.display= "block";
+                            // alert("对不起，您把自己吃了，游戏结束！");
+                            // 移除snake
+                            this.remove();
+                            // 还原Snake中direction和body的初始值，让蛇恢复原状
+                            this.direction = "right";
+                            this.body = [{
+                                    x: 3,
+                                    y: 2,
+                                    color: "red"
+                                },
+                                {
+                                    x: 2,
+                                    y: 2,
+                                    color: "orange"
+                                },
+                                {
+                                    x: 1,
+                                    y: 2,
+                                    color: "orange"
+                                }
+                            ];
+                            // 重新显示snake
+                            this.init();
+                            // 结束游戏
+                            return false;
+                        }
+                    }
+                };
+            }
+        };
+
+        // 初始化food和snake
+        var food = new Food();
+        var snake = new Snake();
+        // 显示food和snake
+        food.init();
+        snake.init();
+
+        // 给页面添加键盘按下事件，
+        document.onkeydown = function (e) {
+            var eve = e || window.event; // 兼容低版本IE
+            switch (eve.keyCode) {
+                case 37: // ←键的keyCode
+                case 65: // A键的keyCode
+                    if (snake.direction != "right") { // 不允许后退的简单处理。不过有bug，手速够快的话还是会后退...
+                        snake.direction = "left";
+                    }
+                    break;
+                case 38: // ↑键的keyCode
+                case 87: // W键的keyCode
+                    if (snake.direction != "bottom") {
+                        snake.direction = "top";
+                    }
+                    break;
+                case 39: // →键的keyCode
+                case 68: // D键的keyCode
+                    if (snake.direction != "left") {
+                        snake.direction = "right";
+                    }
+                    break;
+                case 40: // ↓键的keyCode为38
+                case 83: // S键的keyCode
+                    if (snake.direction != "top") {
+                        snake.direction = "bottom";
+                    }
+                    break;
+            }
+        };
+
+        var btn = document.getElementById("btn");
+        var timeId = null;
+        // 给按钮注册点击事件，点击按钮开始游戏
+        function begin() {
+            // clearInterval(timeId); // 防止多次点击造成多次触发setInterval （方法1，有bug）
+            // 上面方法存在bug：当连续多次快速点击时，程序就一直在清除定时器，在界面上给人的感觉就像卡住了一样...
+            /*
+              修改方法如下：
+              1.将clearInterval(timeId);换成if(timeId != null) return;
+              2.在其余clearInterval(timeId); 后加一句timeId = null; 保证每次能正常启动定时器
+            */
+            if(timeId != null) return;  // 防止多次点击造成多次触发setInterval（方法2，改进版）
+            timeId = setInterval("snake.move()", 200);
+        };
+        btn.onclick = begin;
+
+        function handleClose(){
+            console.log(666);
+            document.getElementById("shadow").style.display = 'none';
+        }
+</script>
+</body>
+
+</html>

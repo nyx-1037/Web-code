@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玻璃按钮</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="./03-玻璃按钮.css">
+    <style>
+        /* 设置所有元素的外边距和内边距为0，盒模型为border-box */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 设置容器为绝对定位，宽度为100%，高度为100vh，居中对齐，背景为渐变色 */
+.container {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #2193b0, #6dd5ed);
+}
+
+/* 在容器前添加一个伪元素，作为背景层，高度为50%，模糊效果为5px */
+.container::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 50%;
+    z-index: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+/* 设置三个颜色块，模糊效果为200px */
+.container .color {
+    position: absolute;
+    filter: blur(200px);
+}
+
+/* 第一个颜色块，背景色为#2193b0，宽度为800px，高度为800px，位置在顶部 */
+.container .color:nth-child(1) {
+    background: #2193b0;
+    width: 800px;
+    height: 800px;
+    top: -450px;
+}
+
+/* 第二个颜色块，背景色为#2193b0，宽度为600px，高度为600px，位置在底部左侧 */
+.container .color:nth-child(2) {
+    background: #2193b0;
+    width: 600px;
+    height: 600px;
+    bottom: -150px;
+    left: 100px;
+}
+
+/* 第三个颜色块，背景色为#2193b0，宽度为400px，高度为400px，位置在底部右侧 */
+.container .color:nth-child(3) {
+    background: #2193b0;
+    width: 400px;
+    height: 400px;
+    bottom: 50px;
+    right: 100px;
+}
+
+/* 设置无序列表为相对定位，层级为2 */
+ul {
+    position: relative;
+    display: flex;
+    z-index: 2;
+}
+
+/* 设置列表项为相对定位，去除列表样式，设置外边距为10px */
+ul li {
+    position: relative;
+    list-style: none;
+    margin: 10px;
+}
+
+/* 设置列表项链接为相对定位，宽度为80px，高度为80px，圆角为10px，居中对齐，无文本装饰，字体颜色为白色，字体大小为32px，边框为白色半透明，阴影效果为0px 5px 45px rgba(0, 0, 0, 0.1)，模糊效果为2px */
+ul li a {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 5px 45px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+/* 鼠标悬停时，将链接向上移动20px */
+ul li a:hover {
+    transform: translateY(-20px);
+}
+
+/* 在链接前添加一个伪元素，作为动画效果，宽度为50px，高度为100%，背景色为白色，倾斜45度，向右平移150px */
+ul li a::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50px;
+    height: 100%;
+    background-color: #fff;
+    transform: skewX(45deg) translateX(150px);
+    transition: all 0.5s;
+}
+
+/* 鼠标悬停时，将伪元素向左平移150px */
+ul li a:hover::before {
+    transform: skewX(45deg) translateX(-150px);
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="color"></div>
+        <div class="color"></div>
+        <div class="color"></div>
+        <ul>
+            <li>
+                <a href=""><i class="fa fa-qq" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-weixin" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-weibo" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-tencent-weibo" aria-hidden="true"></i></a>
+            </li>
+            <li>
+                <a href=""><i class="fa fa-telegram" aria-hidden="true"></i></a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>花瓣登录组件</title>
+    <style>
+        * {
+    margin: 0; /* 设置所有元素的外边距为0 */
+    padding: 0; /* 设置所有元素的内边距为0 */
+    box-sizing: border-box; /* 设置盒模型为border-box，包括边框在内的尺寸都包含在内 */
+    font-family: 'Poppins', sans-serif; /* 设置全局字体为Poppins和sans-serif备用字体 */
+}
+
+section {
+    position: relative; /* 设置section元素相对定位 */
+    width: 100%; /* 设置宽度为100% */
+    height: 100vh; /* 设置高度为视口高度 */
+    display: flex; /* 设置为弹性布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    overflow-x: hidden; /* 水平溢出隐藏 */
+}
+
+section .bg {
+    position: absolute; /* 设置背景图片绝对定位 */
+    top: 0; /* 顶部对齐 */
+    left: 0; /* 左侧对齐 */
+    width: 100%; /* 宽度100% */
+    height: 100%; /* 高度100% */
+    object-fit: cover; /* 图片填充整个容器 */
+}
+
+/* 登录框样式 */
+.login {
+    position: relative; /* 设置登录框相对定位 */
+    width: 500px; /* 宽度500px */
+    min-height: 300px; /* 最小高度300px */
+    padding: 60px; /* 内边距60px */
+    border-radius: 20px; /* 边框圆角20px */
+    background: rgba(255, 255, 255, 0.25); /* 背景颜色为白色透明度0.25 */
+    backdrop-filter: blur(3px); /* 背景模糊效果 */
+    display: flex; /* 设置为弹性布局 */
+    flex-direction: column; /* 垂直方向排列 */
+    gap: 20px; /* 元素之间的间距为20px */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2); /* 设置阴影效果 */
+}
+
+.login h2 {
+    position: relative; /* 设置标题相对定位 */
+    width: 100%; /* 宽度100% */
+    text-align: center; /* 文本居中 */
+    font-size: 2.5em; /* 字体大小2.5em */
+    font-weight: 600; /* 字体粗细600 */
+    color: #8f2c24; /* 字体颜色 */
+    margin-bottom: 10px; /* 底部外边距10px */
+}
+
+/* 输入框样式 */
+.login .inputBox {
+    position: relative; /* 设置输入框相对定位 */
+}
+
+.login .inputBox input {
+    position: relative; /* 设置输入框相对定位 */
+    width: 100%; /* 宽度100% */
+    padding: 15px 20px; /* 内边距 */
+    outline: none; /* 去除默认轮廓 */
+    font-size: 1.25em; /* 字体大小1.25em */
+    color: #8f2c24; /* 字体颜色 */
+    border-radius: 5px; /* 边框圆角5px */
+    background: #fff; /* 背景颜色为白色 */
+    border: none; /* 去除边框 */
+    margin-bottom: 30px; /* 底部外边距30px */
+}
+
+.login .inputBox ::placeholder {
+    color: #8f2c24; /* 输入框占位符颜色 */
+}
+
+.login .inputBox #btn {
+    position: relative; /* 设置按钮相对定位 */
+    border: none; /* 去除边框 */
+    outline: none; /* 去除默认轮廓 */
+    background: #8f2c24; /* 背景颜色 */
+    color: #fff; /* 字体颜色 */
+    cursor: pointer; /* 鼠标指针样式为手型 */
+    font-size: 1.25em; /* 字体大小1.25em */
+    font-weight: 500; /* 字体粗细500 */
+}
+
+.login .group {
+    display: flex; /* 设置为弹性布局 */
+    justify-content: space-between; /* 两端对齐 */
+}
+
+.login .group a {
+    font-size: 1.25em; /* 字体大小1.25em */
+    color: #8f2c24; /* 字体颜色 */
+    font-weight: 500; /* 字体粗细500 */
+    text-decoration: none; /* 去除下划线 */
+}
+
+/* 花朵动画效果 */
+.flower {
+    position: absolute; /* 设置花朵绝对定位 */
+    width: 100%; /* 宽度100% */
+    height: 100vh; /* 高度100vh */
+    overflow: hidden; /* 溢出隐藏 */
+    z-index: 1; /* 设置层级 */
+    pointer-events: none; /* 禁止鼠标事件 */
+}
+
+.flower img {
+    position: absolute; /* 设置花朵图片绝对定位 */
+}
+
+/* 花朵动画关键帧 */
+@keyframes animate {
+    0% {
+        opacity: 0;
+        top: -10px;
+        transform: translateX(20px) rotate(0deg);
+    }
+    /* 其他关键帧省略，实现花朵飘落效果 */
+}
+
+/* 不同花朵的位置和动画速度 */
+.flower img:nth-child(1) {
+    left: 20%;
+    animation: animate 20s linear infinite;
+}
+
+/* 其他花朵样式设置类似 */
+
+/* 密码显示/隐藏图标样式 */
+.login .inputBox i {
+    position: absolute; /* 设置图标绝对定位 */
+    right: 15px; /* 右侧定位 */
+    top: 15px; /* 顶部定位 */
+    font-size: 28px; /* 字体大小28px */
+    color: #8f2c24; /* 图标颜色 */
+    cursor: pointer; /* 鼠标指针样式为手型 */
+}
+
+.login .inputBox .icon-see {
+    display: block; /* 显示图标 */
+}
+
+.login .inputBox .icon-nosee {
+    display: none; /* 隐藏图标 */
+}
+
+.login .inputBox.see .icon-see {
+    display: none; /* 隐藏显示图标 */
+}
+
+.login .inputBox.see .icon-nosee {
+    display: block; /* 显示隐藏图标 */
+}
+    </style>
+    <script>
+        
+const pass = document.querySelector('#pass')
+const see = document.querySelector('.icon-see')
+const noSee = document.querySelector('.icon-nosee')
+const inp = document.querySelector('#pass input')
+
+see.addEventListener('click', function () {
+  pass.classList.add('see')
+  inp.type = 'text'
+})
+
+noSee.addEventListener('click', function () {
+  pass.classList.remove('see')
+  inp.type = 'password'
+})
+    </script>
+</head>
+<body>
+    <section>
+        <img src="./img/background.jpeg" class="background">
+    
+        <div class="login">
+            <h2>Sign In</h2>
+            <div class="inputBox">
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="inputBox" id="pass">
+                <input type="password" placeholder="Password">
+                <i class="iconfont icon-see"></i>
+                <i class="iconfont icon-nosee"></i>
+            </div>
+            <div class="inputBox">
+                <input type="submit" value="Login" id="btn">
+            </div>
+            <div class="group">
+                <a href="#">Forget Password</a>
+                <a href="#">Sign up</a>
+            </div>
+        </div>
+    
+        <div class="flower">
+            <img src="./img/flower.png">
+            <img src="./img/flower.png">
+            <img src="./img/flower.png">
+            <img src="./img/flower.png">
+            <img src="./img/flower.png">
+            <img src="./img/flower.png">
+            <img src="./img/flower.png">
+            <img src="./img/flower.png">
+        </div>
+    </section>
+</body>
+</html>

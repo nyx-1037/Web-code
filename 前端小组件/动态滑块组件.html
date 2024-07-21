@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态滑块组件</title>
+    <style>
+        * {
+    transition: all 1s ease-in-out; /* 对所有元素应用过渡效果，持续1秒，缓动函数为ease-in-out */
+}
+
+body {
+    margin: 0; /* 设置页面边距为0 */
+    background: #722e2e; /* 设置背景颜色为深红色 */
+    display: flex; /* 使用flex布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    flex-direction: column; /* 设置主轴方向为垂直 */
+    height: 100vh; /* 设置高度为视口高度 */
+}
+
+h1 {
+    color: #eff0d8; /* 设置文字颜色为浅灰色 */
+    text-align: center; /* 文字居中对齐 */
+    font-size: 3em; /* 设置字体大小为3em */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; /* 设置字体 */
+    font-weight: 200; /* 设置字体粗细为200 */
+}
+
+.slider {
+    width: 110px; /* 设置宽度为110px */
+    height: 50px; /* 设置高度为50px */
+    background: #eff0d8; /* 设置背景颜色为浅灰色 */
+    position: relative; /* 设置相对定位 */
+    border-radius: 50px; /* 设置圆角为50px */
+    padding: 0 10px; /* 设置内边距 */
+}
+
+.ball {
+    width: 45px; /* 设置宽度为45px */
+    height: 45px; /* 设置高度为45px */
+    border-radius: 50px; /* 设置圆角为50px */
+    background: #e73b3b; /* 设置背景颜色为红色 */
+    position: absolute; /* 设置绝对定位 */
+    top: 50%; /* 设置顶部位置为50% */
+    margin-top: -22px; /* 上外边距为负的一半高度 */
+    margin-left: 3px; /* 左外边距为3px */
+    transition: all 0.7s cubic-bezier(0.46, 0.03, 0.52, 0.96); /* 应用过渡效果，持续0.7秒，缓动函数为cubic-bezier */
+    left: 0; /* 设置左侧位置为0 */
+    cursor: pointer; /* 鼠标移入时显示手型指针 */
+    z-index: 2; /* 设置堆叠顺序 */
+}
+
+.right {
+    left: 79px; /* 设置左侧位置为79px */
+    background: #608c60; /* 设置背景颜色为绿色 */
+}
+
+.naughty {
+    color: #e73b3b; /* 设置文字颜色为红色 */
+}
+
+.nice {
+    color: #608c60; /* 设置文字颜色为绿色 */
+}
+
+.active {
+    transition: all 0.6s ease-in-out; /* 对所有属性应用过渡效果，持续0.6秒，缓动函数为ease-in-out */
+    font-size: 1.5em; /* 设置字体大小为1.5em */
+    font-weight: bold; /* 设置字体粗细为粗体 */
+}
+
+.green {
+    background: #1e441e; /* 设置背景颜色为深绿色 */
+}
+
+    </style>
+
+</head>
+<body>
+    <h1>Have you been <span class='naughty active'>naughty</span> or <span class='nice'>nice</span> this year?</h1>
+<div class='slider'>
+    <div class="ball"></div>
+</div>
+
+</body>
+<script>
+    let ball = document.querySelector('.ball');
+let naughtyText = document.querySelector('.naughty');
+let niceText = document.querySelector('.nice');
+let body = document.querySelector('body');
+ball.addEventListener('click', () => {
+ball.classList.toggle('right');
+naughtyText.classList.toggle('active')
+niceText.classList.toggle('active');
+body.classList.toggle('green')
+})
+</script>
+</html>

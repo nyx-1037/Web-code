@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      
+      html,body{
+        /* 核心属性 让页面平滑滚动*/
+        scroll-behavior: smooth;
+      }
+      
+      #one,#two,#three{
+        width: 80%;
+        height: 700px;
+        background-color: #eee;
+        margin: 50px auto;
+        font-size: 50px;
+        text-align: center;
+        line-height: 700px;
+      }
+      
+      /* 定位置顶按钮 */
+      .dTop{
+        position: fixed;
+        right: 20px;
+        bottom: 100px;
+        background-color: red;
+        text-align: center;
+        line-height: 60px;
+        width: 60px;
+      }
+      
+      .rightNav{
+        position: fixed;
+        right: 20px;
+        bottom: 200px;
+      }
+      a{
+        display: block;
+        text-align: center;
+        line-height: 60px;
+        width: 60px;
+        color: aliceblue;
+        text-decoration: none;
+        margin-bottom: 10px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    
+    <section id="one">模块1</section>
+    <section id="two">模块2</section>
+    <section id="three">模块3</section>
+    
+    
+    <div class="rightNav">
+      <a href="#one">01</a>
+      <a href="#two">02</a>
+      <a href="#three">03</a>
+    </div>
+    
+    <a href="#one" class="dTop">
+      置顶
+    </a>
+  </body>
+</html> 

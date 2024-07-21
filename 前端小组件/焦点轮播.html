@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>焦点轮播</title>
+    <style>
+        * {
+    margin: 0; /* 设置所有元素的外边距为0 */
+    padding: 0; /* 设置所有元素的内边距为0 */
+    box-sizing: border-box; /* 设置盒模型为border-box，元素的宽度和高度包括边框和内边距，不会影响布局 */
+}
+
+body {
+    display: flex; /* 将body元素设置为弹性布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 100vh; /* 设置body元素的高度为视口高度 */
+    background: linear-gradient(to bottom, #888, #666); /* 设置背景为从上到下的线性渐变色 */
+}
+
+.container {
+    width: 1000px; /* 设置容器的宽度为1000px */
+    position: relative; /* 设置容器为相对定位，子元素可以相对于容器定位 */
+}
+
+.container .bigbox {
+    width: 1000px; /* 设置大盒子的宽度为1000px */
+    height: 500px; /* 设置大盒子的高度为500px */
+    margin: 10px; /* 设置大盒子的外边距为10px */
+    background: url(img/鞠婧祎01.jpg) no-repeat center / cover; /* 设置大盒子的背景为指定图片，居中且覆盖显示 */
+    border-radius: 5px; /* 设置大盒子的圆角为5px */
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1); /* 设置大盒子的阴影效果 */
+    transition: all 1s; /* 设置大盒子的过渡效果为1秒 */
+}
+
+.container ul {
+    list-style: none; /* 去除列表的默认样式 */
+    position: relative; /* 设置列表为相对定位 */
+    width: 100%; /* 设置列表的宽度为100% */
+    height: 100%; /* 设置列表的高度为100% */
+    display: flex; /* 将列表设置为弹性布局 */
+    justify-content: space-around; /* 子元素水平分布在容器内 */
+    align-items: center; /* 子元素垂直居中 */
+    gap: 15px; /* 设置子元素之间的间隔为15px */
+}
+
+.container ul li {
+    flex: 1; /* 设置列表项的弹性增长因子为1，平均分配剩余空间 */
+    height: 120px; /* 设置列表项的高度为120px */
+    cursor: pointer; /* 设置鼠标移上去时显示手型光标 */
+}
+
+.container ul li img {
+    width: 100%; /* 设置图片的宽度为100% */
+    height: 100%; /* 设置图片的高度为100% */
+    border-radius: 10px; /* 设置图片的圆角为10px */
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1); /* 设置图片的阴影效果 */
+}
+
+.container ul li img.active {
+    border: 5px solid orange; /* 设置被激活的图片显示橙色边框 */
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bigbox"></div>
+        <div class="list">
+            <ul>
+                <li><img class="active" src="img/鞠婧祎01.jpg" alt=""></li>
+                <li><img src="img/鞠婧祎02.jpg" alt=""></li>
+                <li><img src="img/鞠婧祎03.jpg" alt=""></li>
+                <li><img src="img/鞠婧祎04.jpg" alt=""></li>
+                <li><img src="img/章若楠01.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
