@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- <script src="https://unpkg.com/vue@next"></script> -->
+<!-- 		<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+		<script src="js/v2.6.10/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			#div1{
+				width:100px;
+				height:100px;
+				background-color: red;
+				position: absolute;
+				left:0px;
+				right:0px;
+				
+			}
+			#div2{
+				width:100px;
+				height:100px;
+				background-color: blue;
+				position: absolute;
+				left:0px;
+				right:0px;
+				
+			}
+			
+			
+			
+			
+			
+		</style>
+	</head>
+	<body>		
+	<div id="app2">
+			计算器：
+			<input type="text" v-model.number="num1" />
+			<select v-model="op">
+				<option>+</option>
+				<option>-</option>
+				<option>*</option>
+				<option>/</option>
+			</select>
+			<input type="text" v-model.number="num2" />
+			= {{sum}}
+		</div>
+		<br>
+		<div id="app">
+			
+			
+			<input type="text" v-model.lazy="message">
+			{{message}}
+			<br>
+			<input type="text" v-model.number="num">{{stype}}:{{num}}
+			<br>
+			去空格前：<input type="text" v-model.trim="msg">
+			<br>
+			去掉空格后：<u>{{msg}}</u>
+			
+			<h1>过滤器：</h1>
+			{{dataMsg | toAdd}}	
+			
+			<h2>自定义指令</h2>
+			
+			<p v-color="'red'">aaa</p>
+			<p v-color="'blue'">12345</p>
+			<p v-color="'pink'">自定义</p>
+			
+			<div id="div1" v-drag></div>
+			<div id="div2" v-drag></div>
+		</div>
+		
+
+		<br>
+
+		
+		
+		<script>
+			// Vue全局过滤器（所有实例都可以用）
+			Vue.filter("toAdd",function(value){
+				return 'VUE' + value
+			});
+			
+			Vue.directive('color',function(el,c){
+				el.style.backgroundColor=c.value;
+			});
+			// 定义一个拖拽指令
+			Vue.directive('drag',function(el){
+				el.onmousedown=function(ev){
+					var disX=ev.clientX-el.offsetLeft;
+					var disY=ev.clientY-el.offsetTop;
+					
+					document.onmousemove=function(ev){
+						var l=ev.clientX-disX;
+						var t=ev.clientY-disY;
+						el.style.left=l+'px';
+						el.style.top=t+'px';
+					};
+					document.onmouseup=function(){
+						document.onmousemove=null;
+						document.onmouseup=null;
+					}
+				};
+			});
+			let vm = new Vue({
+				el:"#app",
+				data:{
+					message:'',
+					num:2,
+					msg:"",
+					dataMsg:"过滤器"
+				},	
+				filters:{
+					/* 局部过滤器 */
+					// toAdd: function(value){
+					// 	return 'VUE-' + value;
+					// })
+				},
+				computed:{
+					stype:function(){
+						return typeof(this.num)
+					}
+				}
+
+				
+			});
+			let vm2 = new Vue({
+				el:"#app2",
+				data:{
+					num1:0,
+					num2:0,
+					op:"-"
+				},
+				computed:{
+					sum:function(){
+						
+						return eval(this.num1 + this.op + this.num2);
+					}
+				}
+				
+			});
+			
+		</script>
+	</body>
+</html>

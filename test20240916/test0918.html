@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>test0918</title>
+		<script src="js/v2.6.10/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			<p>原数据：{{message5}}</p>
+			<p>反转后的数据：{{reversedMessage}}</p>
+			<button @click="add()">补充货物</button>{{count}}
+			<div>总价为：{{Price}}</div>
+		</div>
+		<script>
+			
+			Let vm2 = new Vue({
+				el:"#app",
+				data:{
+					message5:"abcd",
+					package:{
+						count:5,
+						price:5
+					},
+				},
+				computed:{
+					reversedMessage:function()
+					{
+						return this.message.split('').reverse().join('');
+					},
+					Price:function(){
+						return this.package.count*this.package.price;
+					},
+				},
+				methods:{
+
+				}
+				
+			});
+			
+		</script>
+	</body>
+</html>

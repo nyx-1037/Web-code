@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- <script src="https://unpkg.com/vue@next"></script> -->
+		<script src="js/v2.6.10/vue.js" type="text/javascript" charset="utf-8"></script>
+		<style>
+			.showBG{
+				width:200px;
+				height:200px;
+				border:1px solid black;
+			}
+			.changeRed{
+				background-color: red;
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			
+			
+			我的名字是：{{ name }}<br>
+		名字：<input type="text" v-model="name">
+		<div v-html="message2">
+			this is title
+		</div>
+	
+		跳转网址：
+		<a :href = "baiduurl">点击跳转</a>
+		<input type="text" v-model="baiduurl">
+		<br>
+		<button :disabled="Disabled">test</button>
+		<br>
+		
+		
+		<!-- 颜色切换 -->
+		当前颜色：{{tagBG}}
+		<br>
+		点击修改背景色：<button @click="changeBG">点击切换</button>
+		<div class="showBG" :class="{changeRed:flag}"></div>
+		
+		
+		<br>
+		<button @click="counter++">计数器：{{counter}}</button>
+		<br>
+		<button @click.once="c1">{{message}}</button>
+		<br>
+		修改alert:<input type="text" v-model="sayMsg">
+		<button @click="say()">发送</button>
+		<!-- 冒泡提示 -->
+		<br>
+		js:
+		<div onclick="alert(2)">
+			2
+			<div onclick="alert(1)">
+				1
+				<div onclick="alert(0);event.stopPropagation()">
+					0
+				</div>
+			</div>
+			
+		</div>
+		
+		vue:
+		<div @click.stop="alert2">
+			2
+			<div @click.stop="alert1">
+				1
+				<div @click.stop="alert0">
+					0
+				</div>
+			</div>
+			
+		</div>
+		
+<!-- 		<form onsubmit="alert(0);event.preventDefault()">
+			<input type="text" />
+			<button type="submit">提交</button>
+			
+			
+		</form> -->
+		
+		<!-- 事件阻止 -->
+		<form @submit.prevent="alert(0)">
+			<input type="text" />
+			<button type="submit">提交</button>
+		</form>
+		
+		<!-- 鼠标修饰符 -->
+		<div>
+			鼠标修饰符：
+			<button @mouseup.right="right" @mouseup.middle="middle" @mouseup.left="left">{{message3}}</button>
+		</div>
+		
+		<!-- 键盘修饰符 -->
+		<div>
+			<button v-on:keyup.enter="enter">{{message4}}</button>
+			<button @keyup.tab="tab">{{message4}}</button>
+			<button @keyup="show()">{{message4}}</button>
+			
+			
+		</div>
+		
+		<div v-for="(value,key,index) in object">
+			{{index}} : {{key}} : {{value}}
+		</div>
+		
+		<div>
+			<ul>
+				<li v-for="(item, index) in items" @click="onclick(index)">{{index}} : {{item}}</li>
+			</ul>
+		</div>
+		
+		<p>原数据：{{message5}}</p>
+		<p>反转后的数据：{{reversedMessage}}</p>
+		<button @click="add()">补充货物</button>{{count}}
+		<div>总价为：{{Price}}</div>
+		
+		
+		
+		</div>
+		
+		<script>
+			var vue = new Vue({
+				el:"#app",
+				data:{
+					name: "nie",
+					message:"hello",
+					message2:"<i>666</i>",
+					message3:"鼠标事件",
+					message4:"键盘监听修饰符",
+					sayMsg:"Hello",
+					'isDisabled':true,
+					'Disabled':false,
+					baiduurl:"http://www.baidu.com",
+					url:"www",
+					test:'',
+					counter:0,
+					flag:true,
+					tagBG:"红色",
+					object:{
+						firstname:"John",
+						lastname:"Doe",
+						age:30
+						
+					},
+					items:['apple','tomato','banana','watermalon'],
+					message5:"abcd",
+					package:{
+						count:5,
+						price:5
+					}
+				},
+				computed:{
+					reversedMessage:function()
+					{
+						return this.message5.split('').reverse().join('');
+					},
+					Price:function(){
+						return this.package.count*this.package.price;
+					},
+				},
+				methods:{
+					c1(){
+						this.message = this.message + ' vue! ';
+					},
+					
+					say(){
+						this.test = this.sayMsg;
+						alert(this.test);
+					},
+					
+					changeBG(){
+						if(this.flag == true){
+							this.flag = false;
+							this.tagBG = "白色";
+						}
+						else{
+							this.flag = true;
+							this.tagBG = "红色";
+						}
+					},
+					
+					alert0(){
+						alert(1);
+					},
+					alert1(){
+						alert(1);
+					},
+					alert2(){
+						alert(2);
+					},
+					left(){
+						this.message3 = this.message3 + " left";
+					},
+					right(){
+						this.message3 = this.message3 + " right";
+					},
+					middle(){
+						this.message3 = this.message3 + " middle";
+					},
+				
+					enter(){
+						this.message4 = 'enter'
+					},
+					tab(){
+						this.message4 = 'tab'
+					},
+					show(){
+						alert(event.keycode)
+					},
+					
+					onclick(index){
+						alert(index)
+					},
+
+					
+					
+					
+				}
+			})
+		</script>
+	</body>
+</html>
