@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- <script src="https://unpkg.com/vue@next"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue-router/dist/vue-router.js"></script>
+		
+		<!-- <script src="https://cdn.bootcss.com/vue/2.5.2/vue.min.js"></script>
+		<script src="https://cdn.bootcss.com/vue-router/3.0.1/vue-router.min.js"></script> -->
+	</head>
+	<body>
+		<div id="app">  
+
+			
+				<!-- 使用 router-link 组件来导航。 -->
+				<!-- 通过传入‘to’ 属性指定链接， -->
+				<!-- <router-link> 默认会被渲染成一个‘<a>’标签 -->
+				<router-link to="/home">home</router-link>
+				<router-link to="/news">news</router-link>
+			
+			<!-- 路由出口 -->
+			<!-- 路由匹配到的组件将渲染在这里 -->
+			<router-view></router-view>
+		</div>
+		
+		
+		<script type="text/javascript">
+			//1.定义（路由）组件。
+			const Home = { template:'<div>首页</div>' };
+			const News = { template:'<div>新闻</div>' };
+			
+			//2.定义路由
+			//每个路由应该映射一个组件
+			const routes = [
+				{ path:'/home',component: Home},
+				{ path:'/news',component: News}
+			]
+			
+			//3.创建 router 实例,然后传‘routes’配置
+			const router = new VueRouter({
+				routes //（缩写）相当于 routes : routes
+			})
+			
+			//4.创建和挂载根实例
+			//记得要通过 router 配置参数注入路由，
+			//从而让整个应用都有路由功能。
+			let vm = new Vue({
+				el:"#app",
+				data:{
+					
+					
+					
+				},
+				//将路由添加到Vue中
+				router
+				
+			});
+		</script>
+	</body>
+</html>

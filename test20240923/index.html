@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- <script src="https://unpkg.com/vue@next"></script> -->
+		<script src="js/v2.6.10/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{ counter }}
+			<aaa></aaa>
+		</div>
+		
+		<template id="aaa">
+			<div class="parent">
+				<p>父组件</p>
+				<bbb>
+					
+					
+					<p slot="my-header">我是头部</p>
+					<p>测试1</p>
+					<p>测试2</p>
+					<p>测试3</p>
+					<p slot="my-footer">我是尾部</p>
+					
+				</bbb>
+			</div>
+			
+		</template>
+		
+		<script>
+			let vm = new Vue({
+				el:"#app",
+				data:{
+					a:'aaa',
+					
+					
+				},
+				components:{
+					'aaa':{
+						data(){
+							return{
+								msg2:'我是父组件的数据',
+							}
+						},
+						template:'#aaa',
+						components:{
+							'bbb':{
+								template:`
+								<div class="child">
+									<h3>子组件</h3>
+									
+									
+									<slot name="my-header">头部默认值</slot>
+									<slot name="my-body">主体默认值</slot>
+									<slot name="my-footer">尾部默认值</slot>
+									<slot></slot>
+									<h3>子组件</h3>
+								
+								</div>
+								`
+							}
+						}
+					}
+				}
+				
+			});
+		</script>
+	</body>
+</html>

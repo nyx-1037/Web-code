@@ -4,21 +4,48 @@
 		<meta charset="utf-8" />
 		<title></title>
 		<!-- <script src="https://unpkg.com/vue@next"></script> -->
-		<script src="js/v3.2.8/vue.global.prod.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/v2.6.10/vue.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<div id="app">
-			{{ counter }}
+			<aaa></aaa>
 		</div>
+		
+		<template id="aaa">
+			<div>
+				<h1>h1h1h1h1h1h1h1</h1>
+				<bbb :m="msg2" :my-msg="msg"></bbb>
+			</div>
+		</template>
 		<script>
-			const App = {
-				data() {
-					return {
-						counter: 0
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					a:'aaa'
+				},
+				components:{
+					'aaa':{
+						
+						data(){
+							return{
+								msg:111,
+								msg2:'我是父组件'
+							}
+						},
+						template:'#aaa',
+						components:{
+							'bbb':{
+								props:{
+									'm':String,
+									'myMsg':Number
+								},
+								template:'<h3>我是子组件 ==> {{m}} <br> myMsg: {{myMsg}} </h3>'
+							}
+						}
 					}
+					
 				}
-			};
-			Vue.createApp(App).mount('#app');
+			});
 		</script>
 	</body>
 </html>
